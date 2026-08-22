@@ -1,0 +1,466 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_installments": false,
+            "show_tax_and_shipping": false,
+            "enable_product_reviews_by_price": false
+          }
+        },
+        "judge_me_reviews_preview_badge_EYxkNV": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {
+            "show_in_quickbuy": false
+          }
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "show_single": false,
+            "selector_style": "listed",
+            "dynamic_availability": "show",
+            "enable_size_chart": true,
+            "size_chart_label": "Size guide",
+            "size_chart_variant": "Size",
+            "size_chart_page": "{{ product.metafields.custom.size_charts.value }}"
+          }
+        },
+        "inventory_level_HPhj3a": {
+          "type": "inventory-level",
+          "settings": {
+            "show_inventory_notice": "low",
+            "show_inventory_count": "low",
+            "inventory_threshold": 1,
+            "enable_box": false,
+            "enable_pulse": true,
+            "show_in_quickbuy": true
+          }
+        },
+        "richtext_k7LrB4": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "richtext": "<p>{{ product.metafields.custom.size_description.value }}</p>",
+            "icon": "ruler",
+            "icon_size": "small",
+            "enable_box": false,
+            "box_color": "#e0f4d5",
+            "show_in_quickbuy": false
+          }
+        },
+        "richtext_9XbtMe": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "richtext": "<p>¿Dudas sobre size? Escríbenos por <a href=\"https://ig.me/m/shopcuevascloset\" title=\"https://ig.me/m/shopcuevascloset\">DM</a> o <a href=\"https://wa.me/19393550370?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHb29nbGUiLCJpYXQiOjE3NzU1MDI3ODgsImV4cCI6MTc3NTUwMzA4OCwidXJsIjoiaHR0cHM6Ly93YS5tZS8xOTM5MzU1MDM3MCJ9.8xLZPN6_OAVcJpt_hNpbTHaednIuTLl81XYjRf0kDTsGAkjRte0YFuXGmcL1gjYREggvYgQ4DY_nlBxgdw9wCA\" title=\"https://wa.me/19393550370?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHb29nbGUiLCJpYXQiOjE3NzU1MDI3ODgsImV4cCI6MTc3NTUwMzA4OCwidXJsIjoiaHR0cHM6Ly93YS5tZS8xOTM5MzU1MDM3MCJ9.8xLZPN6_OAVcJpt_hNpbTHaednIuTLl81XYjRf0kDTsGAkjRte0YFuXGmcL1gjYREggvYgQ4DY_nlBxgdw9wCA\">WhatsApp</a></p>",
+            "icon": "",
+            "icon_size": "small",
+            "enable_box": false,
+            "box_color": "#e0f4d5",
+            "show_in_quickbuy": false
+          }
+        },
+        "richtext_xc9rAe": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "richtext": "<p><strong>Color: </strong>{{ product.metafields.shopify[\"color-pattern\"] | metafield_text: field: 'label' }}</p>",
+            "icon": "",
+            "icon_size": "small",
+            "enable_box": false,
+            "box_color": "#e0f4d5",
+            "show_in_quickbuy": false
+          }
+        },
+        "related_products_bgw88P": {
+          "type": "related-products",
+          "settings": {
+            "title": "More Colors",
+            "product_list": "{{ product.metafields[\"shopify--discovery--product_recommendation\"].complementary_products.value }}",
+            "style": "image",
+            "image_width": 54,
+            "show_in_quickbuy": false
+          }
+        },
+        "related_products_BrGYdn": {
+          "type": "related-products",
+          "disabled": true,
+          "settings": {
+            "title": "Más colores",
+            "product_list": "{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products.value }}",
+            "style": "image",
+            "image_width": 56,
+            "show_in_quickbuy": false
+          }
+        },
+        "related_products_eUt9Xf": {
+          "type": "related-products",
+          "settings": {
+            "title": "Completa el set",
+            "product_list": "{{ product.metafields.custom.set.value }}",
+            "style": "image",
+            "image_width": 56,
+            "show_in_quickbuy": false
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "enable_payment_button": false,
+            "show_backorder_text": true,
+            "show_pickup_availability": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "sm_estimated_delivery_date_edd_sbp_estimated_delivery_date_LK9A76": {
+          "type": "shopify://apps/simesy-edd/blocks/sbp-estimated-delivery-date/58a85b5f-3425-4d90-865c-ff4d56cf0314",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "icon_columns_EyBzCy": {
+          "type": "icon-columns",
+          "settings": {
+            "icon_size": "medium",
+            "text_size": "sm",
+            "enable_box": false,
+            "box_color": "#f4f4f4",
+            "icon_1": "truck",
+            "icon_1_color": "rgba(0,0,0,0)",
+            "icon_1_heading": "Envio GRATIS en ordenes $75+",
+            "icon_1_text": "",
+            "icon_2": "map_pin",
+            "icon_2_color": "rgba(0,0,0,0)",
+            "icon_2_heading": "🇵🇷 Pickup GRATIS en Cupey",
+            "icon_2_text": "",
+            "icon_3": "return",
+            "icon_3_color": "rgba(0,0,0,0)",
+            "icon_3_heading": "7 días para cambios GRATIS",
+            "icon_3_text": "",
+            "show_in_quickbuy": false
+          }
+        },
+        "icon_columns_UPWjbn": {
+          "type": "icon-columns",
+          "disabled": true,
+          "settings": {
+            "icon_size": "medium",
+            "text_size": "sm",
+            "enable_box": false,
+            "box_color": "#f4f4f4",
+            "icon_1": "truck",
+            "icon_1_color": "rgba(0,0,0,0)",
+            "icon_1_heading": "Shipping Gratis",
+            "icon_1_text": "Empacamos el mismo día",
+            "icon_2": "return",
+            "icon_2_color": "rgba(0,0,0,0)",
+            "icon_2_heading": "Cambios Fáciles",
+            "icon_2_text": "Cambios gratis de tamaño, pieza o crédito a la tienda",
+            "icon_3": "star",
+            "icon_3_color": "rgba(0,0,0,0)",
+            "icon_3_heading": "Alta calidad",
+            "icon_3_text": "Telas seleccionadas por calidad y comodidad.",
+            "show_in_quickbuy": false
+          }
+        },
+        "essential_upsell_product_addon_app_block_JCGPAV": {
+          "type": "shopify://apps/essential-upsell/blocks/product-addon-app-block/50627fd9-24fd-4250-8614-accc12826d80",
+          "settings": {}
+        },
+        "accordion_CQRzRa": {
+          "type": "accordion",
+          "settings": {
+            "title": "Description - Fit - Size Chart",
+            "icon": "shirt",
+            "content": "{{ product.description }}<p></p>",
+            "page": "",
+            "custom_liquid": "",
+            "open": false,
+            "variant_content": false,
+            "show_in_quickbuy": false
+          }
+        },
+        "accordion_hWUfki": {
+          "type": "accordion",
+          "settings": {
+            "title": "Cambios y Devoluciones",
+            "icon": "truck",
+            "content": "<p><strong>Envío</strong></p><ul><li>PR y USA: $6 flat</li><li>Envío GRATIS en órdenes de $75+</li><li>Pedidos antes de las 3pm (mar–sáb) salen el mismo día 🤍</li><li>Pickup gratis: Vie–Sáb 11am–3pm · Cupey, frente a la bolera de cupey 358 AVE SAN CLAUDIO SAN JUAN, P.R. 00926 </li></ul><p><strong>Devoluciones</strong></p><ul><li>¿No te quedó? Tienes 7 días para cambio o crédito a la tienda</li><li>Contáctanos por WhatsApp o DM 🤍</li></ul><p>Puedes leer más sobre nuestra política de devolución <a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">aquí</a> o puedes escribirnos por WhatsApp: <a href=\"https://wa.me/17879528102?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHb29nbGUiLCJpYXQiOjE3NzU1MDI3ODgsImV4cCI6MTc3NTUwMzA4OCwidXJsIjoiaHR0cHM6Ly93YS5tZS8xOTM5MzU1MDM3MCJ9.8xLZPN6_OAVcJpt_hNpbTHaednIuTLl81XYjRf0kDTsGAkjRte0YFuXGmcL1gjYREggvYgQ4DY_nlBxgdw9wCA\">787-952-8102</a></p>",
+            "page": "",
+            "custom_liquid": "",
+            "open": false,
+            "variant_content": false,
+            "show_in_quickbuy": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "judge_me_reviews_preview_badge_EYxkNV",
+        "divider",
+        "variant-picker",
+        "inventory_level_HPhj3a",
+        "richtext_k7LrB4",
+        "richtext_9XbtMe",
+        "richtext_xc9rAe",
+        "related_products_bgw88P",
+        "related_products_BrGYdn",
+        "related_products_eUt9Xf",
+        "buy-buttons",
+        "sm_estimated_delivery_date_edd_sbp_estimated_delivery_date_LK9A76",
+        "icon_columns_EyBzCy",
+        "icon_columns_UPWjbn",
+        "essential_upsell_product_addon_app_block_JCGPAV",
+        "accordion_CQRzRa",
+        "accordion_hWUfki"
+      ],
+      "custom_css": [
+        ".media-gallery .main-image .slider__item {flex: 0 0 85%; margin-right: 4px;}",
+        ".media-gallery .product-label-container {z-index: 1; align-items: flex-start; justify-content: flex-start;}",
+        "variant-picker:not( .variant-picker--pre-last-selection.variant-picker--product-available ):not([data-availability=\"off\"]) .opt-btn.is-unavailable + .opt-label,variant-picker:not([data-availability=\"off\"]) .option-selector[data-index=\"1\"] .opt-btn.is-unavailable + .opt-label {text-decoration: line-through !important;}"
+      ],
+      "settings": {
+        "show_breadcrumbs": true,
+        "select_first_variant": true,
+        "show_location_underneath": false,
+        "inventory_transfers_enable": false,
+        "enable_sticky_columns": true,
+        "enable_sticky_atc": true,
+        "sticky_atc_position": "end",
+        "sticky_atc_mobile": true,
+        "sticky_atc_behavior": "add_to_cart",
+        "sticky_atc_button_style": "primary",
+        "gallery_size": "small",
+        "gallery_layout": "collage-2",
+        "enable_zoom": true,
+        "show_alt_text": false,
+        "alt_text_icon": "",
+        "show_variant_media_label": true,
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "1767185828a43463cd": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_8PeYdn": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": true,
+            "empty_state": "hide_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_8PeYdn"
+      ],
+      "name": "Review",
+      "settings": {
+        "full_width": false,
+        "show_space": true
+      }
+    },
+    "1778589021b20b67a8": {
+      "type": "apps",
+      "blocks": {
+        "frequently_bought_app_block_tHVwPp": {
+          "type": "shopify://apps/frequently-bought/blocks/app-block/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "frequently_bought_app_block_tHVwPp"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "show_space": true
+      }
+    },
+    "178671447172a31da0": {
+      "type": "apps",
+      "blocks": {
+        "essential_upsell_frequently_bought_together_app_block_LecyCY": {
+          "type": "shopify://apps/essential-upsell/blocks/frequently-bought-together-app-block/50627fd9-24fd-4250-8614-accc12826d80",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "essential_upsell_frequently_bought_together_app_block_LecyCY"
+      ],
+      "settings": {
+        "full_width": false,
+        "show_space": true
+      }
+    },
+    "collapsible_tabs_C9CxCa": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "question_zhFrFj": {
+          "type": "question",
+          "settings": {
+            "title": "¿Tienen tienda en Puerto Rico?",
+            "answer": "<p>Sí, estamos ubicados en Cupey, San Juan; frente a la bolera de Cupey y justo al lado de Party Shop. </p><p><strong>Dirección: </strong>358 Ave San Claudio Suite 102 San Juan, P.R. 00926</p>"
+          }
+        },
+        "question_WGh7tj": {
+          "type": "question",
+          "settings": {
+            "title": "¿Que puedo hacer si no me queda la pieza?",
+            "answer": "<ul><li>Tiene 7 días laborables desde que recibió su paquete para contactarnos y notificarnos. </li><li>Dentro de esos 7 días es elegible para realizar cambio de pieza, cambio de tamaño o recibir crédito a la tienda. </li><li>No realizamos devolución de dinero. </li><li>Contáctanos por email: <strong>info@shopcuevascloset.com</strong></li><li>Contáctanos por <strong>WhatsApp: </strong><a href=\"https://wa.me/17879528102?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHb29nbGUiLCJpYXQiOjE3NzU1MDI3ODgsImV4cCI6MTc3NTUwMzA4OCwidXJsIjoiaHR0cHM6Ly93YS5tZS8xOTM5MzU1MDM3MCJ9.8xLZPN6_OAVcJpt_hNpbTHaednIuTLl81XYjRf0kDTsGAkjRte0YFuXGmcL1gjYREggvYgQ4DY_nlBxgdw9wCA\">787-952-8102</a></li></ul>"
+          }
+        },
+        "question_jyndUG": {
+          "type": "question",
+          "settings": {
+            "title": "¿Las piezas son de buena calidad?",
+            "answer": "<ul><li>Sí, nuestras piezas son seleccionadas tomando en cuenta su tela, calidad y comodidad. </li><li>La joyería es stainless steel / tarnish-free. </li></ul>"
+          }
+        },
+        "question_8jmDP7": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "title": "¿No se que tamaño soy?",
+            "answer": "<ul><li>En la descripción de cada pieza incluimos las medidas de cada pieza o puede solicitar ayuda escribiéndonos al WhatsApp: (939) 355-0370</li><li>También, puede visitarnos en nuestra localidad en Cupey y con gusto podrá medirse la pieza deseada. </li><li><strong>Dirección:</strong> 358 Ave San Claudio Suite 102 San Juan, P.R. 00926</li><li>Estamos frente a la bolera de Cupey y justo al lado de Party Shop</li></ul>"
+          }
+        },
+        "question_qxf66Q": {
+          "type": "question",
+          "settings": {
+            "title": "¿Cuan rápido envian?",
+            "answer": "<ul><li>Realizamos envíos diariamente desde Martes a Sábado (excluyendo días festivo).</li><li>Los envíos a Puerto Rico llegan dentro de  3 a 5 días laborables.</li><li>Los envíos a USA llegan dentro de 7 a 12 días laborables. / Packages to USA are delivered between 7 to 12 working days.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "question_zhFrFj",
+        "question_WGh7tj",
+        "question_jyndUG",
+        "question_8jmDP7",
+        "question_qxf66Q"
+      ],
+      "name": "Preguntas Frecuentes",
+      "settings": {
+        "title": "Preguntas frecuentes:",
+        "open_tab": false,
+        "enable_faq_schema": false
+      }
+    },
+    "featured_collection_ewmw4z": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "title": "Completa el look",
+        "subtitle": "",
+        "collection": "jewelry-accessories",
+        "show_vendor": false,
+        "enable_carousel": false,
+        "grid": 2,
+        "rows": 2,
+        "color_scheme": "1",
+        "show_view_all": true,
+        "full_width": true
+      }
+    },
+    "product_template_product_list_azBxt7": {
+      "type": "product-template-product-list",
+      "disabled": true,
+      "name": "Product list",
+      "settings": {
+        "title": "Product list",
+        "product_list": "{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products.value }}",
+        "hide_if_empty": false,
+        "show_vendor": false,
+        "enable_carousel": false,
+        "grid": 4,
+        "color_scheme": "default",
+        "full_width": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "title": "Otras favoritas",
+        "show_vendor": false,
+        "grid": 4
+      }
+    },
+    "background_video_LzX9BP": {
+      "type": "background-video",
+      "blocks": {
+        "heading_zqqi3b": {
+          "type": "heading",
+          "settings": {
+            "title": "Empacadas con amor desde Cupey 🇵🇷",
+            "heading_max_width": 15,
+            "title_size": 84,
+            "title_size_mobile": 30,
+            "use_h1": false
+          }
+        },
+        "text_rwTQnp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enviamos diariamente desde nuestra tienda en Cupey para que sus favoritos lleguen rápido.</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_zqqi3b",
+        "text_rwTQnp"
+      ],
+      "disabled": true,
+      "name": "Background video",
+      "settings": {
+        "video_shopify": "shopify://files/videos/05d477015923486788664bc3c694031e.mov",
+        "video_external": "",
+        "video_description": "",
+        "text_alignment": "center center",
+        "height_desktop": 600,
+        "height_mobile": 260,
+        "full_width": true,
+        "overlay_style": "full image-overlay--bg-shadow"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1767185828a43463cd",
+    "1778589021b20b67a8",
+    "178671447172a31da0",
+    "collapsible_tabs_C9CxCa",
+    "featured_collection_ewmw4z",
+    "product_template_product_list_azBxt7",
+    "related-products",
+    "background_video_LzX9BP"
+  ]
+}

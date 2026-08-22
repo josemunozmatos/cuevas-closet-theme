@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "compact_messages_CTtWRk": {
+      "type": "compact-messages",
+      "blocks": {
+        "message_VF4MN7": {
+          "type": "message",
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        },
+        "message_4pw6UX": {
+          "type": "message",
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_VF4MN7",
+        "message_4pw6UX"
+      ],
+      "disabled": true,
+      "name": "Store messages",
+      "settings": {
+        "head_not_col_bg": "#f4f6f8",
+        "head_not_col_txt1": "#171717",
+        "head_not_col_txt2": "#4c4c4b",
+        "head_not_mob_show": true,
+        "head_not_mob_text": "Free Shipping Until January 10",
+        "head_not_mob_url": ""
+      }
+    },
+    "main": {
+      "type": "main-cart",
+      "blocks": {
+        "subtotal-and-checkout": {
+          "type": "subtotal-and-checkout",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal-and-checkout"
+      ],
+      "settings": {
+        "show_page_title": true,
+        "show_backorder_text": false,
+        "show_inventory_notice": "low",
+        "show_inventory_count": "low",
+        "inventory_threshold": 1,
+        "show_order_note": false,
+        "show_tax_and_shipping": true,
+        "show_additional_checkout_buttons": true,
+        "cart_terms_page": "",
+        "show_continue_shopping": true,
+        "continue_shopping_url": "shopify://collections/new-arrivals",
+        "empty_icon": "bag",
+        "empty_heading": "Your cart is empty",
+        "empty_text": "",
+        "empty_button_text": "Start shopping",
+        "empty_button_link": "shopify://collections/new-arrivals",
+        "empty_button_style": "primary",
+        "show_shipping_calculator": false,
+        "shipping_calculator_default_country": "United States"
+      }
+    },
+    "compact_messages_dPngWB": {
+      "type": "compact-messages",
+      "blocks": {
+        "message_aL37T3": {
+          "type": "message",
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        },
+        "message_tpJXnW": {
+          "type": "message",
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_aL37T3",
+        "message_tpJXnW"
+      ],
+      "disabled": true,
+      "name": "Store messages",
+      "settings": {
+        "head_not_col_bg": "#f4f6f8",
+        "head_not_col_txt1": "#171717",
+        "head_not_col_txt2": "#4c4c4b",
+        "head_not_mob_show": true,
+        "head_not_mob_text": "Free Shipping Until January 10",
+        "head_not_mob_url": ""
+      }
+    },
+    "background_video_Vyebeq": {
+      "type": "background-video",
+      "blocks": {
+        "heading_3krpXh": {
+          "type": "heading",
+          "settings": {
+            "title": "We Hand-Pack Every Order with love 🫶",
+            "heading_max_width": 15,
+            "title_size": 84,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "text_6Jfpd3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enviamos de Martes a Sábado desde nuestra tienda en Cupey. Queremos que tus favoritos lleguen en tiempo récord. Cada pieza es empacada con cariño, emoción y agradecimiento.</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_3krpXh",
+        "text_6Jfpd3"
+      ],
+      "name": "Background video",
+      "settings": {
+        "video_shopify": "shopify://files/videos/05d477015923486788664bc3c694031e.mov",
+        "video_external": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_description": "",
+        "text_alignment": "center center",
+        "height_desktop": 600,
+        "height_mobile": 340,
+        "full_width": true,
+        "overlay_style": "shadow"
+      }
+    }
+  },
+  "order": [
+    "compact_messages_CTtWRk",
+    "main",
+    "compact_messages_dPngWB",
+    "background_video_Vyebeq"
+  ]
+}

@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
+          "type": "announcement",
+          "settings": {
+            "text": "<strong>🚚 Shipping a PR y USA $6 • FREE ordenes $75+</strong>",
+            "show_countdown": false,
+            "hide_on_end": false,
+            "end_date": "2026-01-10",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "box",
+            "use_custom_colors": false,
+            "bg_color": "#232323",
+            "bg_gradient": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "announcement_pHNDBT": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "<strong>🔄 ¡Cambios gratis en todos los pedidos! | Compra sin preocupaciones 🤍</strong>",
+            "show_countdown": false,
+            "hide_on_end": false,
+            "end_date": "",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "box",
+            "use_custom_colors": false,
+            "bg_color": "#4a4a4a",
+            "bg_gradient": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "announcement_RWeVBb": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Añadimos looks nuevos | Shop New",
+            "show_countdown": false,
+            "hide_on_end": false,
+            "end_date": "",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "box",
+            "use_custom_colors": false,
+            "bg_color": "#dd9a1a",
+            "bg_gradient": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "ab92b476-2d4e-4c0c-991e-4f528236c2d9": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Buy Online Pick-Up In Store",
+            "show_countdown": false,
+            "hide_on_end": false,
+            "end_date": "",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "box",
+            "use_custom_colors": false,
+            "bg_color": "#dd9a1a",
+            "bg_gradient": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "announcement_htQ66B": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Envío Gratis $60+ | 🇵🇷 Cupey, PR | New Arrivals Weekly",
+            "show_countdown": false,
+            "hide_on_end": false,
+            "end_date": "2026-01-10",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "box",
+            "use_custom_colors": false,
+            "bg_color": "#232323",
+            "bg_gradient": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "announcement_8b6MCr": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "BOGO 50% Off en artículos seleccionados | <a href=\"/collections/sale\" title=\"Sale\">Shop Sale</a>",
+            "show_countdown": true,
+            "hide_on_end": false,
+            "end_date": "2026-01-15",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "dash",
+            "use_custom_colors": false,
+            "bg_color": "#4a4a4a",
+            "bg_gradient": "",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "e33df8e3-c667-49c7-9da7-a23fac96c44d",
+        "announcement_pHNDBT",
+        "announcement_RWeVBb",
+        "ab92b476-2d4e-4c0c-991e-4f528236c2d9",
+        "announcement_htQ66B",
+        "announcement_8b6MCr"
+      ],
+      "settings": {
+        "message_font_size": 12,
+        "announcement_bar_col": "{{ shop.brand.colors.primary[0].background }}",
+        "announcement_bar_gradient": "",
+        "announcement_text_col": "#ffffff",
+        "show_social_icons": false,
+        "menu": "",
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [
+        "/* Reduce spacing between nav items */.navigation__link {padding-left: 0.5rem; padding-right: 0.5rem;}",
+        " /* Make navigation font smaller */.navigation__link {font-size: 0.9rem;}",
+        ".pageheader .logo {padding: 18px 12px; text-align: center;}",
+        ".logo-area .mobile-nav-toggle {width: 64px;}",
+        ".cart-link {width: 60px;}"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/Artboard_4_2x_1739ac42-fc69-46a0-a0dd-aaa2c22ca26f.png",
+        "logo_img_width_int": 150,
+        "mobile_logo_img_width_int": 135,
+        "logo_h1": true,
+        "enable_sticky": true,
+        "enable_transparent": false,
+        "transparent_color": "#ffffff",
+        "transparent_fade": "#000000",
+        "transparent_fade_strength": 25,
+        "menu_linklist": "main-menu",
+        "menu_layout": "inline-menu-center",
+        "nav_featured_link": "SALE",
+        "menu_linklist_mobile": "main-menu",
+        "mobile_expand_with_entire_link": true,
+        "enable_mobile_promo_carousel": true,
+        "enable_nav_mob_products": true,
+        "nav_mob_products_title": "New Arrivals",
+        "nav_mob_products_collection": "new-arrivals",
+        "enable_search": true,
+        "search_recommendations_title": "Recommended",
+        "search_recommendations_menu": "main-menu",
+        "icon_strategy": "icons_only",
+        "cart_icon": "cart"
+      }
+    },
+    "store-messages": {
+      "type": "store-messages",
+      "blocks": {
+        "message_ey38Gx": {
+          "type": "message",
+          "settings": {
+            "heading": "",
+            "subheading": "Nuevas Piezas Esta Semana | Shop New Arrivals",
+            "link_url": "shopify://collections/new-arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "message_ey38Gx"
+      ],
+      "disabled": true,
+      "settings": {
+        "head_not_home_only": false,
+        "head_not_col_bg": "#ffffff",
+        "head_not_col_txt1": "#171717",
+        "head_not_col_txt2": "#cc5a73",
+        "head_not_mob_show": false,
+        "head_not_mob_text": "Free shipping on orders over $50",
+        "head_not_mob_url": ""
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "store-messages"
+  ]
+}

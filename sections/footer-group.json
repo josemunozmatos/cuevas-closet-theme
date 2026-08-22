@@ -1,0 +1,305 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "map_3Miygi": {
+      "type": "map",
+      "disabled": true,
+      "name": "Map",
+      "settings": {
+        "full_width": true,
+        "color_scheme": "1",
+        "heading": "Visit us in Cupey",
+        "address": "<p>358 Ave San Claudio Suite 102, San Juan, 00926</p><p>Phone: <a href=\"tel:+1+19393550370\">939-355-0370</a></p><p>Tuesday-Friday, 11am-4pm<br/>Saturday, 11am-3pm<br/>Sunday - Mondays, Closed</p>",
+        "button": "Directions",
+        "show_pin": true,
+        "show_feature_image": true,
+        "feature_image": "shopify://shop_images/IMG_5067.jpg",
+        "map_address": "358 Ave San Claudio Suite 102 San Juan, P.R. 00926",
+        "api_key": "",
+        "map_type": "embed",
+        "map_style": "silver",
+        "background_image": "shopify://shop_images/IMG_3927.jpg"
+      }
+    },
+    "collection_list_PAaqzA": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_jHB6iV": {
+          "type": "collection",
+          "settings": {
+            "collection": "dresses",
+            "subheading": "",
+            "button_label": ""
+          }
+        },
+        "collection_VBaaKf": {
+          "type": "collection",
+          "settings": {
+            "collection": "bottoms",
+            "subheading": "",
+            "button_label": ""
+          }
+        },
+        "collection_LnEXFG": {
+          "type": "collection",
+          "settings": {
+            "collection": "tops",
+            "subheading": "",
+            "button_label": ""
+          }
+        },
+        "collection_kbWebD": {
+          "type": "collection",
+          "settings": {
+            "collection": "jumpsuits-rompers",
+            "subheading": "",
+            "button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_jHB6iV",
+        "collection_VBaaKf",
+        "collection_LnEXFG",
+        "collection_kbWebD"
+      ],
+      "disabled": true,
+      "name": "Collection list",
+      "settings": {
+        "title": "More to love",
+        "enable_carousel": true,
+        "grid": 4,
+        "color_scheme": "default",
+        "full_width": true,
+        "coll_grid_image_shape": "square",
+        "coll_grid_image_position": "center center",
+        "coll_thumb_mob_per_row": "2",
+        "coll_grid_show_count": false,
+        "coll_text_position": "below",
+        "coll_text_position_under_mobile": false,
+        "coll_thumb_text_align_x": "center",
+        "coll_thumb_text_align_y": "center",
+        "coll_button_style": "primary"
+      }
+    },
+    "image_with_text_EnjdpU": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9NyRcT": {
+          "type": "heading",
+          "settings": {
+            "title": "Visit us in Cupey",
+            "use_h1": false
+          }
+        },
+        "text_L6indX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>358 Ave San Claudio Suite 102, San Juan, 00926</p><p>Phone: (787) 952-8102</p><p>Tuesdays - Thursdays: Shipping / Preparing and shipping online orders</p><p>Fridays & Saturdays: 11am-3pm</p><p><br/>Sunday - Mondays: Closed</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_KNwnVN": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get Directions",
+            "button_link": "https://www.google.com/maps/place/Cuevas+Closet/@18.3786917,-66.0566687,17z/data=!3m1!4b1!4m6!3m5!1s0x8c03695cea300271:0x188f303db043be36!8m2!3d18.3786917!4d-66.0540884!16s%2Fg%2F11x5tg7hhx?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9NyRcT",
+        "text_L6indX",
+        "button_KNwnVN"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/IMG_5522.jpg",
+        "image_2": "shopify://shop_images/IMG_5067.jpg",
+        "image_width": 700,
+        "image_link": "",
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "scrolling_banner_zpcFdV": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "image_keEhkp": {
+          "type": "image",
+          "settings": {
+            "image_width": 100,
+            "link": ""
+          }
+        },
+        "image_Gid6mx": {
+          "type": "image",
+          "settings": {
+            "image_width": 100,
+            "link": ""
+          }
+        },
+        "image_4kAxwy": {
+          "type": "image",
+          "settings": {
+            "image_width": 100,
+            "link": ""
+          }
+        },
+        "image_tzapRT": {
+          "type": "image",
+          "settings": {
+            "image_width": 100,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_keEhkp",
+        "image_Gid6mx",
+        "image_4kAxwy",
+        "image_tzapRT"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "color_scheme": "default",
+        "text_size": 50,
+        "vertical_padding": 40,
+        "speed": 20,
+        "direction": "left",
+        "font": "heading",
+        "space": 120
+      }
+    },
+    "cross-page-promos": {
+      "type": "cross-page-promos",
+      "blocks": {
+        "1478526632862": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "text": "Free shipping",
+            "link_url": ""
+          }
+        },
+        "1478526645605": {
+          "type": "icon",
+          "settings": {
+            "icon": "price_tag",
+            "text": "New styles",
+            "link_url": ""
+          }
+        },
+        "1478526647261": {
+          "type": "icon",
+          "settings": {
+            "icon": "gift",
+            "text": "Gift cards",
+            "link_url": ""
+          }
+        },
+        "1478527611164": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "text": "5.0 star rating",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "1478526632862",
+        "1478526645605",
+        "1478526647261",
+        "1478527611164"
+      ],
+      "disabled": true,
+      "settings": {
+        "cross_page_promo_bg": "#fbf9f4",
+        "cross_page_promo_color": "#232323",
+        "show_on_home_page": true
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1601374680247": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "title": "Nuestra mision:",
+            "text": "<p>Piezas versátiles de alta calidad seleccionadas para brindarte el <em>perfect fit </em>y la confianza que buscas en tu día a día.</p>",
+            "image": "shopify://shop_images/Artboard_4_2x_1739ac42-fc69-46a0-a0dd-aaa2c22ca26f.png",
+            "image_width": 160,
+            "show_social_icons": true,
+            "soc_icons_large": false,
+            "enable_follow_on_shop": false
+          }
+        },
+        "1601374621546": {
+          "type": "menu",
+          "settings": {
+            "title": "Customer Care",
+            "menu": "footer",
+            "link_layout": "full"
+          }
+        },
+        "text_nwGfdQ": {
+          "type": "text",
+          "settings": {
+            "title": "CONTACT OR VISIT US",
+            "text": "<p>¿Te interesa tener una tienda como esta? <a href=\"https://wa.me/17879528102?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHb29nbGUiLCJpYXQiOjE3NzU1MDI3ODgsImV4cCI6MTc3NTUwMzA4OCwidXJsIjoiaHR0cHM6Ly93YS5tZS8xOTM5MzU1MDM3MCJ9.8xLZPN6_OAVcJpt_hNpbTHaednIuTLl81XYjRf0kDTsGAkjRte0YFuXGmcL1gjYREggvYgQ4DY_nlBxgdw9wCA\" title=\"https://wa.me/17879528102?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHb29nbGUiLCJpYXQiOjE3NzU1MDI3ODgsImV4cCI6MTc3NTUwMzA4OCwidXJsIjoiaHR0cHM6Ly93YS5tZS8xOTM5MzU1MDM3MCJ9.8xLZPN6_OAVcJpt_hNpbTHaednIuTLl81XYjRf0kDTsGAkjRte0YFuXGmcL1gjYREggvYgQ4DY_nlBxgdw9wCA\">Escribenos y te ayudamos</a></p><p>WhatsApp: <a href=\"https://wa.me/17879528102?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHb29nbGUiLCJpYXQiOjE3NzU1MDI3ODgsImV4cCI6MTc3NTUwMzA4OCwidXJsIjoiaHR0cHM6Ly93YS5tZS8xOTM5MzU1MDM3MCJ9.8xLZPN6_OAVcJpt_hNpbTHaednIuTLl81XYjRf0kDTsGAkjRte0YFuXGmcL1gjYREggvYgQ4DY_nlBxgdw9wCA\">787-952-8102</a></p><p>Instagram: <a href=\"https://www.instagram.com/shopcuevascloset/\" target=\"_blank\" title=\"https://www.instagram.com/shopcuevascloset/\">@shopcuevascloset</a></p><p>E-mail: <a href=\"mailto:info@shopcuevascloset.com\">info@shopcuevascloset.com</a></p><p>Address: <a href=\"https://www.google.com/maps/place/Cuevas+Closet/@18.3786917,-66.0566633,17z/data=!3m1!4b1!4m6!3m5!1s0x8c03695cea300271:0x188f303db043be36!8m2!3d18.3786917!4d-66.0540884!16s%2Fg%2F11x5tg7hhx?entry=ttu&g_ep=EgoyMDI1MDkwOC4wIKXMDSoASAFQAw%3D%3D\">358 Ave San Claudio Suite 102 San Juan, P.R. 00926</a></p><p>Store Hours:  Fridays and Saturdays  11am - 3pm</p>",
+            "image_width": 160,
+            "show_social_icons": false,
+            "soc_icons_large": false,
+            "enable_follow_on_shop": false
+          }
+        },
+        "1601374580731": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Newsletter: You deserve 10% OFF",
+            "text": "<p>Sign up to get a 10% off your first order and be the first to know about our weekly new arrivals.</p>",
+            "button_style": "inherit",
+            "show_social_icons": false,
+            "soc_icons_large": false
+          }
+        }
+      },
+      "block_order": [
+        "1601374680247",
+        "1601374621546",
+        "text_nwGfdQ",
+        "1601374580731"
+      ],
+      "settings": {
+        "lower_menu": "footer",
+        "show_powered_by": false,
+        "show_payment_icons": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    }
+  },
+  "order": [
+    "map_3Miygi",
+    "collection_list_PAaqzA",
+    "image_with_text_EnjdpU",
+    "scrolling_banner_zpcFdV",
+    "cross-page-promos",
+    "footer"
+  ]
+}

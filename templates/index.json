@@ -1,0 +1,908 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_yFaybj": {
+      "type": "slideshow",
+      "blocks": {
+        "image_DDUQhd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/alice-top-cuevas-closet-3765729.jpg",
+            "mobile_image": "shopify://shop_images/alice-top-cuevas-closet-3765729.jpg",
+            "slide_link": "shopify://collections/new-arrivals",
+            "subheading": "",
+            "title": "New Styles Every Week",
+            "heading_max_width": 18,
+            "title_size": 60,
+            "title_size_mobile": 40,
+            "use_h1": false,
+            "text": "<p>Envíos rápido desde Cupey 🇵🇷</p>",
+            "enlarge_text": false,
+            "button_label_1": "Shop New Arrivals",
+            "button_url_1": "shopify://collections/new-arrivals",
+            "button_label_2": "Shop Best Sellers",
+            "button_url_2": "shopify://collections/bestseller",
+            "text_alignment": "center left"
+          }
+        }
+      },
+      "block_order": [
+        "image_DDUQhd"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".image-overlay--bg-shadow:not(.text-overlay-parent--mobile-stack) .text-overlay__button.btn {border: 0 !important; color: black; background: white;}"
+      ],
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 420,
+        "height_mobile": 380,
+        "full_width": true,
+        "mobile_overlay_under": false,
+        "overlay_style": "full image-overlay--bg-shadow",
+        "transition": "slide-fade",
+        "navigation": "dots",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "accessibility_info": ""
+      }
+    },
+    "background_video_WYB3mK": {
+      "type": "background-video",
+      "blocks": {
+        "heading_mazwXN": {
+          "type": "heading",
+          "settings": {
+            "title": "Nuevos estilos todas las semanas",
+            "heading_max_width": 30,
+            "title_size": 56,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "text_CrVhzE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Encuentra esa pieza especial que no verás en otro lugar. Elegidas con amor desde Cupey.</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_GNKpa3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop New Arrivals",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_style": "secondary"
+          }
+        },
+        "button_xjryi4": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop All",
+            "button_link": "shopify://collections/shop-all",
+            "button_style": "secondary"
+          }
+        },
+        "subheading_YWWUjD": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Tell your story"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mazwXN",
+        "text_CrVhzE",
+        "button_GNKpa3",
+        "button_xjryi4",
+        "subheading_YWWUjD"
+      ],
+      "name": "Background video",
+      "settings": {
+        "video_shopify": "shopify://files/videos/E8EC6E29-970E-4572-9582-959CB5C99F15.mov",
+        "video_external": "",
+        "video_description": "",
+        "text_alignment": "center center",
+        "height_desktop": 360,
+        "height_mobile": 260,
+        "full_width": true,
+        "overlay_style": "full image-overlay--bg-shadow"
+      }
+    },
+    "compact_messages_FbtxEh": {
+      "type": "compact-messages",
+      "blocks": {
+        "message_f9gpBr": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        },
+        "message_3kkHPj": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_f9gpBr",
+        "message_3kkHPj"
+      ],
+      "custom_css": [
+        ".store-messages-mobile {padding: 16px 0; background: var(--background); color: var(--text-1); font-size: 12px; line-height: 1.2em; text-align: center;}"
+      ],
+      "name": "Store messages",
+      "settings": {
+        "head_not_col_bg": "#f4f6f8",
+        "head_not_col_txt1": "#171717",
+        "head_not_col_txt2": "#4c4c4b",
+        "head_not_mob_show": true,
+        "head_not_mob_text": "📍 Pickup gratis en Cupey · 🚚 Envío rápido a PR y USA",
+        "head_not_mob_url": ""
+      }
+    },
+    "compact_messages_4LCW36": {
+      "type": "compact-messages",
+      "blocks": {
+        "message_dXbjW9": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        },
+        "message_dATE7p": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "heading": "Message",
+            "subheading": "Add important information here",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_dXbjW9",
+        "message_dATE7p"
+      ],
+      "custom_css": [
+        ".store-messages-mobile {padding: 16px 0; background: var(--background); color: var(--text-1); font-size: 12px; line-height: 1.2em; text-align: center;}"
+      ],
+      "name": "Store messages",
+      "settings": {
+        "head_not_col_bg": "#f4f6f8",
+        "head_not_col_txt1": "#171717",
+        "head_not_col_txt2": "#4c4c4b",
+        "head_not_mob_show": true,
+        "head_not_mob_text": "🔄 Cambios gratis · 7 días | 📦 Empacamos el mismo día",
+        "head_not_mob_url": ""
+      }
+    },
+    "featured_collection_amzWac": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection-slider-row {margin-top: 24px; margin-bottom: -70px;}",
+        ".product-grid--carousel {grid-auto-columns: calc( (84% - var(--gutter) * (var(--product-columns-desktop) - 1)) / var(--product-columns-desktop) ); grid-auto-flow: column; grid-template-columns: none; align-items: normal;}",
+        "product-title {margin: 0; font-size: 1.6em !important;}"
+      ],
+      "name": "Products: New Arrivals",
+      "settings": {
+        "title": "New Arrivals 💕",
+        "subtitle": "Nuevas piezas disponibles · Tallas limitadas ✨",
+        "collection": "new-arrivals",
+        "show_vendor": false,
+        "enable_carousel": false,
+        "grid": 3,
+        "rows": 2,
+        "color_scheme": "default",
+        "show_view_all": true,
+        "full_width": true
+      }
+    },
+    "1617293273c37b524b": {
+      "type": "rich-text",
+      "blocks": {
+        "button_YDFENm": {
+          "type": "button",
+          "settings": {
+            "button_label": "View All New Arrivals",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "button_YDFENm"
+      ],
+      "name": "Button",
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "rich_text_YDLM9j": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PLzcW8": {
+          "type": "heading",
+          "settings": {
+            "title": "Rich text",
+            "use_h1": false
+          }
+        },
+        "text_wt4WqL": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_PLzcW8",
+        "text_wt4WqL"
+      ],
+      "disabled": true,
+      "name": "Rich text",
+      "settings": {
+        "height": "small",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "1767634328f7f81706": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_cards_carousel_63EF7r": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "all",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "star_rating": "all",
+            "show_review_media": true,
+            "display_order": "most_recent",
+            "no_image_fallback": "product_image",
+            "max_reviews": 20,
+            "review_length": "small",
+            "text_size": "small",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": false,
+            "arrows_position": "sides",
+            "max_width": 1600,
+            "corner_styling": "soft",
+            "header_text_color": "#000000",
+            "text_color": "#000000",
+            "card_color": "#f9f9f9",
+            "stars_color": "",
+            "arrows_color": "#000000",
+            "transition_speed": 4,
+            "header_text": "Reviews:",
+            "show_average_rating": true,
+            "rating_display": "default"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_cards_carousel_63EF7r"
+      ],
+      "name": "Reviews",
+      "settings": {
+        "full_width": false,
+        "show_space": true
+      }
+    },
+    "1480591889144": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection-slider-row {margin-top: var(--section-padding); margin-bottom: -70px;}"
+      ],
+      "name": "Best Sellers",
+      "settings": {
+        "title": "Los Favoritos 🌟",
+        "subtitle": "⭐⭐⭐⭐⭐ Más de 200 reseñas de clientas en Puerto Rico.",
+        "collection": "bestseller",
+        "show_vendor": false,
+        "enable_carousel": false,
+        "grid": 3,
+        "rows": 2,
+        "color_scheme": "default",
+        "show_view_all": true,
+        "full_width": true
+      }
+    },
+    "rich_text_tWRjTw": {
+      "type": "rich-text",
+      "blocks": {
+        "button_QAQNtG": {
+          "type": "button",
+          "settings": {
+            "button_label": "View All Best Sellers",
+            "button_link": "shopify://collections/bestseller",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "button_QAQNtG"
+      ],
+      "name": "CTA Bestsellers",
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "rich_text_dGdVmF": {
+      "type": "rich-text",
+      "blocks": {
+        "text_WawCNL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Shop by collection</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "text_WawCNL"
+      ],
+      "custom_css": [
+        ".fully-padded-row--small {padding-bottom: 0px;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "height": "small",
+        "text_alignment": "center",
+        "full_width": true,
+        "color_scheme": "1"
+      }
+    },
+    "1619015739944f86f6": {
+      "type": "gallery",
+      "blocks": {
+        "1619015739944f86f6-1": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/69A4302B-6585-4607-B442-B5C71AE0E5BF.jpg",
+            "video_shopify": "shopify://files/videos/IMG_0330.mov",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Dresses",
+            "button_label": "",
+            "link": "shopify://collections/dresses",
+            "text_alignment": "center center"
+          }
+        },
+        "media_GJKMUx": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/IMG_4965_1c9b6f7e-fdd2-4c82-ae2a-9fef758baed6.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Bottoms",
+            "button_label": "",
+            "link": "shopify://collections/bottoms",
+            "text_alignment": "center center"
+          }
+        },
+        "1619015739944f86f6-2": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/889CC6CB-9368-4244-A0CE-3B45322EB075.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Tops",
+            "button_label": "",
+            "link": "shopify://collections/tops",
+            "text_alignment": "center center"
+          }
+        },
+        "media_h64pBy": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/soph-mini-bag-cuevas-closet-4646047.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Accessories",
+            "button_label": "",
+            "link": "shopify://collections/accessories",
+            "text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "1619015739944f86f6-1",
+        "media_GJKMUx",
+        "1619015739944f86f6-2",
+        "media_h64pBy"
+      ],
+      "custom_css": [
+        "@media (max-width: 767.98px) {.gallery--mobile-carousel.gallery--with-margins .slider__grid {grid-auto-columns: calc(100% - var(--gutter) * 3); width: 240px; } .gallery__item {height: 160px; }}"
+      ],
+      "name": "Collections",
+      "settings": {
+        "grid_desktop": 4,
+        "grid_mobile": "2",
+        "height": "adapt",
+        "desktop_image_height": 570,
+        "mobile_image_height": 200,
+        "title_size": 28,
+        "title_size_mobile": 18,
+        "enable_margin": true,
+        "enable_row_spacing": false,
+        "full_width": true,
+        "color_scheme": "1",
+        "enable_carousel": true,
+        "overlay_style": "full image-overlay--bg-shadow",
+        "overlay_padding": "standard",
+        "button_style": "primary"
+      }
+    },
+    "gallery_AqUmhG": {
+      "type": "gallery",
+      "blocks": {
+        "media_YTRBtz": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/BF2A5E9D-047A-4402-B5C0-9FF75E1FFF2D.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Pants",
+            "button_label": "",
+            "link": "shopify://collections/bottoms",
+            "text_alignment": "center center"
+          }
+        },
+        "media_XfxihW": {
+          "type": "media",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/nani-top-cuevas-closet-2515875.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Tops",
+            "button_label": "",
+            "link": "shopify://collections/tops",
+            "text_alignment": "center center"
+          }
+        },
+        "media_PrGEBJ": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/B8A25638-6381-410D-9325-ECEB881ACEE2.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Accesories & Jewerly",
+            "button_label": "",
+            "link": "shopify://collections/accessories",
+            "text_alignment": "center center"
+          }
+        },
+        "media_apVJmz": {
+          "type": "media",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/mia-bracelet-cuevas-closet-4323101.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Jewelry",
+            "button_label": "",
+            "link": "shopify://collections/dresses",
+            "text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "media_YTRBtz",
+        "media_XfxihW",
+        "media_PrGEBJ",
+        "media_apVJmz"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 767.98px) {.gallery--mobile-carousel.gallery--with-margins .slider__grid {grid-auto-columns: calc(100% - var(--gutter) * 3); width: 240px; } .gallery__item {height: 160px; }}"
+      ],
+      "name": "Collections",
+      "settings": {
+        "grid_desktop": 4,
+        "grid_mobile": "2",
+        "height": "adapt",
+        "desktop_image_height": 250,
+        "mobile_image_height": 200,
+        "title_size": 28,
+        "title_size_mobile": 18,
+        "enable_margin": true,
+        "enable_row_spacing": false,
+        "full_width": true,
+        "color_scheme": "1",
+        "enable_carousel": true,
+        "overlay_style": "full image-overlay--bg-shadow",
+        "overlay_padding": "standard",
+        "button_style": "primary"
+      }
+    },
+    "featured_collection_Lh9Xep": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection-slider-row {margin-top: var(--section-padding); margin-bottom: -70px;}",
+        ".product-grid--carousel {grid-auto-columns: calc( (84% - var(--gutter) * (var(--product-columns-desktop) - 1)) / var(--product-columns-desktop) ); grid-auto-flow: column; grid-template-columns: none; align-items: normal;}",
+        "product-title {margin: 0; font-size: 1.6em !important;}"
+      ],
+      "name": "Products: Jewelry",
+      "settings": {
+        "title": "New Jewelry✨",
+        "subtitle": "",
+        "collection": "jewelry",
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 4,
+        "rows": 1,
+        "color_scheme": "default",
+        "show_view_all": false,
+        "full_width": true
+      }
+    },
+    "rich_text_3gRLfn": {
+      "type": "rich-text",
+      "blocks": {
+        "button_6TEYkH": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop New Jewelry",
+            "button_link": "shopify://collections/jewelry",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "button_6TEYkH"
+      ],
+      "name": "Button: Jewelry",
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "1617291721c3d3e73d": {
+      "type": "background-video",
+      "blocks": {
+        "b9c3b2b8-6b3d-4a55-8343-a6742af1b4f3": {
+          "type": "heading",
+          "settings": {
+            "title": "Empacamos rápido y con amor desde Cupey 🇵🇷",
+            "heading_max_width": 14,
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "use_h1": false
+          }
+        },
+        "3080b845-314c-4722-80d2-bc73640e8ed6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p> Queremos que tus favoritos lleguen en tiempo récord. Cada pieza es empacada con cariño, emoción y agradecimiento.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "b9c3b2b8-6b3d-4a55-8343-a6742af1b4f3",
+        "3080b845-314c-4722-80d2-bc73640e8ed6"
+      ],
+      "settings": {
+        "video_shopify": "shopify://files/videos/05d477015923486788664bc3c694031e.mov",
+        "video_external": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_description": "",
+        "text_alignment": "center left",
+        "height_desktop": 480,
+        "height_mobile": 260,
+        "full_width": true,
+        "overlay_style": "full image-overlay--bg-shadow"
+      }
+    },
+    "1617292342c63ff855": {
+      "type": "multi-column",
+      "blocks": {
+        "text_block_czEeNW": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": false,
+            "title": "",
+            "text": "<p>🚚 <strong>Quick Shipping</strong></p><p>Hacemos envíos todos los días de Martes a Sábado desde nuestra tienda en Cupey, San Juan.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "text_block_7apg8f": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": false,
+            "title": "",
+            "text": "<p>🌟 <strong>Quality Garanteed</strong></p><p>Sólo trabajamos con marcas y piezas que hemos probado y sabemos que son de calidad.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "1617292342c63ff855-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": false,
+            "title": "",
+            "text": "<p>🤝 <strong>Risk-free shopping</strong></p><p>7 días desde que recibe su pieza para cualquier cambio o store credit.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "b1086ec6-bafc-4093-9ed5-2e8e87ac77ac": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": false,
+            "title": "",
+            "text": "<p>♥️ <strong>We Care</strong></p><p>Contestamos las preguntas que tengas, escríbenos: WhatsApp (787)952-8102</p>",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_czEeNW",
+        "text_block_7apg8f",
+        "1617292342c63ff855-1",
+        "b1086ec6-bafc-4093-9ed5-2e8e87ac77ac"
+      ],
+      "settings": {
+        "title": "4 Reasons to fall in love 🫶 with Cuevas Closet",
+        "media_aspect_ratio": "1",
+        "media_width": 700,
+        "text_alignment": "left",
+        "button_style": "primary",
+        "color_scheme": "2"
+      }
+    },
+    "featured_collection_94DKU4": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [
+        ".collection-slider-row {margin-top: var(--section-padding); margin-bottom: -70px;}"
+      ],
+      "name": "Products: Sale",
+      "settings": {
+        "title": "Last Chance! ✨",
+        "subtitle": "",
+        "collection": "sale",
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 4,
+        "rows": 1,
+        "color_scheme": "default",
+        "show_view_all": false,
+        "full_width": true
+      }
+    },
+    "rich_text_HhDQnB": {
+      "type": "rich-text",
+      "blocks": {
+        "button_tWzMbx": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop SALE",
+            "button_link": "shopify://collections/sale-1",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "button_tWzMbx"
+      ],
+      "disabled": true,
+      "name": "Button: Sale",
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "gallery_NwVYDX": {
+      "type": "gallery",
+      "blocks": {
+        "media_F4LJUz": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/IMG_7985.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Rings",
+            "button_label": "",
+            "link": "shopify://collections/dresses",
+            "text_alignment": "center center"
+          }
+        },
+        "media_64QkED": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/nani-top-cuevas-closet-2515875.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Earings",
+            "button_label": "",
+            "link": "shopify://collections/tops",
+            "text_alignment": "center center"
+          }
+        },
+        "media_LMMXkF": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/IMG_4965_1c9b6f7e-fdd2-4c82-ae2a-9fef758baed6.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Bracelets",
+            "button_label": "",
+            "link": "shopify://collections/bottoms",
+            "text_alignment": "center center"
+          }
+        },
+        "media_ApfYYj": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/soph-mini-bag-cuevas-closet-4646047.jpg",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Shop Necklaces",
+            "button_label": "",
+            "link": "shopify://collections/accessories",
+            "text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "media_F4LJUz",
+        "media_64QkED",
+        "media_LMMXkF",
+        "media_ApfYYj"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 767.98px) {.gallery--mobile-carousel.gallery--with-margins .slider__grid {grid-auto-columns: calc(100% - var(--gutter) * 3); width: 240px; } .gallery__item {height: 160px; }}"
+      ],
+      "name": "Collections: Jewelry",
+      "settings": {
+        "grid_desktop": 4,
+        "grid_mobile": "2",
+        "height": "fixed",
+        "desktop_image_height": 250,
+        "mobile_image_height": 200,
+        "title_size": 28,
+        "title_size_mobile": 18,
+        "enable_margin": true,
+        "enable_row_spacing": false,
+        "full_width": true,
+        "color_scheme": "1",
+        "enable_carousel": true,
+        "overlay_style": "full image-overlay--bg-shadow",
+        "overlay_padding": "standard",
+        "button_style": "primary"
+      }
+    },
+    "featured_collection_GcWxfD": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [
+        ".collection-slider-row {margin-top: var(--section-padding); margin-bottom: -40px; margin-top: 0px;}"
+      ],
+      "name": "Jewelry",
+      "settings": {
+        "title": "Hand Picked Jewelry",
+        "subtitle": "",
+        "collection": "jewelry",
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 4,
+        "rows": 1,
+        "color_scheme": "1",
+        "show_view_all": true,
+        "full_width": true
+      }
+    },
+    "1767790485cc770ca2": {
+      "type": "apps",
+      "blocks": {
+        "moast_carousel_KPUYET": {
+          "type": "shopify://apps/moast/blocks/carousel/1ac7547b-5443-446c-868c-7fab4566ee16",
+          "settings": {
+            "dynamic": false,
+            "feed": "",
+            "feed_usage": "back_up",
+            "header": "<p>Join our 4k+ followers: @shopcuevascloset</p>",
+            "slide_type": "cards",
+            "product_cards": "overlay",
+            "autoplay_mode": "sequential",
+            "autoscroll_duration": 10,
+            "slide_size_mode": "fixed",
+            "slide_size": "200",
+            "slides_in_view_desktop": 4,
+            "slides_in_view_mobile": 2,
+            "aspect_ratio": "vertical",
+            "border": 0,
+            "border_color": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
+            "slide_rounding": "6",
+            "slide_spacing": 14,
+            "padding_top": 30,
+            "pagination": "below",
+            "alignment": "center",
+            "click_action": "fullscreen",
+            "float_location": "bottom_left",
+            "float_size": "small",
+            "show_captions": false,
+            "show_handles": false,
+            "custom_css": "@media (max-width: 767.98px)\n.strongly-spaced-row, .fully-spaced-row--medium {\nmargin-top: var(--larger-section-padding-mobile);\nmargin-bottom: var(--larger-section-padding-mobile);\nmargin-bottom: -50px;\n}"
+          }
+        }
+      },
+      "block_order": [
+        "moast_carousel_KPUYET"
+      ],
+      "name": "IG Feed",
+      "settings": {
+        "full_width": false,
+        "show_space": true
+      }
+    }
+  },
+  "order": [
+    "slideshow_yFaybj",
+    "background_video_WYB3mK",
+    "compact_messages_FbtxEh",
+    "compact_messages_4LCW36",
+    "featured_collection_amzWac",
+    "1617293273c37b524b",
+    "rich_text_YDLM9j",
+    "1767634328f7f81706",
+    "1480591889144",
+    "rich_text_tWRjTw",
+    "rich_text_dGdVmF",
+    "1619015739944f86f6",
+    "gallery_AqUmhG",
+    "featured_collection_Lh9Xep",
+    "rich_text_3gRLfn",
+    "1617291721c3d3e73d",
+    "1617292342c63ff855",
+    "featured_collection_94DKU4",
+    "rich_text_HhDQnB",
+    "gallery_NwVYDX",
+    "featured_collection_GcWxfD",
+    "1767790485cc770ca2"
+  ]
+}

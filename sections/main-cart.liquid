@@ -1,0 +1,874 @@
+{%- liquid
+  if section.settings.show_continue_shopping and cart.items != empty
+    if section.settings.continue_shopping_url != blank
+      assign continue_shopping_url = section.settings.continue_shopping_url
+    else
+      assign continue_shopping_url = routes.all_products_collection_url
+      for item in cart.items
+        for collection in item.product.collections
+          unless collection.handle == 'all' or collection.handle == 'frontpage'
+            assign continue_shopping_url = collection.url
+            assign csurl_found = true
+            break
+          endunless
+        endfor
+        if csurl_found
+          break
+        endif
+      endfor
+    endif
+  endif
+
+  assign cart_page_freeship_met = false
+  assign all_amounts = settings.free_shipping_amounts | newline_to_br | strip_newlines | split: '<br />'
+  for amount in all_amounts
+    assign split_amount = amount | split: ':'
+    if split_amount.size == 2 and split_amount[0] == localization.country.currency.iso_code
+      assign freeship_threshold = split_amount.last | plus: 0
+      break
+    elsif split_amount.size == 3 and split_amount[0] == localization.country.iso_code and split_amount[1] == localization.country.currency.iso_code
+      assign freeship_threshold = split_amount.last | plus: 0
+      break
+    endif
+  endfor
+  if freeship_threshold != blank and cart.total_price >= freeship_threshold
+    assign cart_page_freeship_met = true
+  endif
+-%}
+
+{%- if section.settings.show_order_note -%}
+  <script src="{{ 'cart-note.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<style>
+  .main-cart .free-shipping-bar {
+    margin: 8px 0;
+    --free-shipping-bar-color: {{ settings.btn_alt_bg | default: '#f8d7de' }} !important;
+  }
+  .main-cart .free-shipping-bar__bar::after {
+    background: {{ settings.btn_alt_bg | default: '#f8d7de' }} !important;
+  }
+  .main-cart .cart-summary-shipping {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    font-size: 14px;
+  }
+  .main-cart .cart-summary-shipping__amount {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .main-cart .cart-summary-shipping__was {
+    opacity: 0.5;
+  }
+  .main-cart .cart-summary-savings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: var(--product-inventory-low-text-color, {{ settings.prod_label_sale_text }});
+  }
+
+  .main-cart .cart-page-footer {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgb(var(--text-color) / var(--divider-opacity, 0.1));
+  }
+  .main-cart .cart-page-checkout-btn.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    margin-top: 4px;
+  }
+  .main-cart .cart-page-checkout-btn .icon {
+    position: static;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .main-cart .cart-page-checkout-label {
+    white-space: nowrap;
+  }
+  .main-cart .update-cart-container {
+    display: none;
+  }
+  .main-cart .cart-page-express {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgb(var(--text-color) / var(--divider-opacity, 0.1));
+  }
+  .main-cart .cart-page-express__label {
+    margin: 0 0 10px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0.55;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .main-cart .cart-page-express .additional-checkout-buttons {
+    margin-top: 0;
+  }
+  .main-cart .cart-page-cta-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .main-cart .cart-page-cta-trust-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+  .main-cart .cart-page-cta-trust-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  .main-cart .cart-page-trust-bar {
+    display: flex;
+    align-items: stretch;
+    margin: 16px 0 0;
+    padding: 8px 0;
+    gap: 0;
+    border-top: 1px solid rgb(var(--text-color) / var(--divider-opacity, 0.1));
+    border-bottom: 1px solid rgb(var(--text-color) / var(--divider-opacity, 0.1));
+  }
+  .main-cart .cart-page-trust-bar__item {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .main-cart .cart-page-trust-bar__item:first-child {
+    flex: 3 1 0;
+    padding-left: 0;
+    border-right: 1px solid rgb(var(--text-color) / var(--divider-opacity, 0.1));
+  }
+  .main-cart .cart-page-trust-bar__item:last-child {
+    flex: 2 1 0;
+    padding-right: 0;
+  }
+  .main-cart .cart-page-trust-bar__icon {
+    display: flex;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+  .main-cart .cart-page-trust-bar__icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  .main-cart .cart-page-payment-icons {
+    margin-top: 16px;
+    text-align: center;
+  }
+  .main-cart .cart-page-payment-icons-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 6px;
+    width: 100%;
+    min-width: 0;
+  }
+  .main-cart .cart-page-payment-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 14px;
+    overflow: hidden;
+  }
+  .main-cart .cart-page-payment-icon svg,
+  .main-cart .cart-page-payment-icon img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    display: block;
+    object-fit: contain;
+  }
+  .main-cart .cart-page-payment-icon--american_express {
+    flex: 1.2 1 0;
+  }
+  @media (max-width: 767px) {
+    .main-cart .checkout-subtotal-container__right {
+      text-align: left;
+    }
+    .main-cart .cart-page-cta-trust {
+      white-space: normal;
+    }
+  }
+</style>
+
+<div class="container fully-spaced-row main-cart" data-ajax-update="true" style="--page-container-width: {{ settings.max_page_width | at_most: 1200 }}px;">
+  <cart-form data-section-id="{{ section.id }}" data-ajax-update="true">
+    {% if section.settings.show_page_title %}
+      <div data-merge="page-heading" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+        {%- if cart.items != empty -%}
+          <div class="page-header">
+            <h1 class="majortitle">{{ 'cart.general.title' | t }}</h1>
+          </div>
+        {%- endif -%}
+      </div>
+    {% endif %}
+
+    {%- if settings.show_free_shipping_bar -%}
+      <div class="slim-container align-center" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+        {%- render 'free-shipping-bar' -%}
+      </div>
+    {%- endif -%}
+
+    <form action="{{ routes.cart_url }}" method="post" id="cartform" class="cart-form">
+      <div class="cart-item-list">
+        <div class="cart-item-list__body" data-merge-list="cart-items">
+          {% if cart.items != empty %}
+            <div data-merge-list-item="item-key:head">
+              <div class="cart-item-list__head" aria-hidden="true" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+                <div class="cart-item-list-heading cart-item-list-heading--product">{{ 'cart.items.product' | t }}</div>
+                <div class="cart-item-list-heading cart-item-list-heading--price">{{ 'cart.items.price' | t }}</div>
+                <div class="cart-item-list-heading cart-item-list-heading--quantity">{{ 'cart.items.quantity' | t }}</div>
+                <div class="cart-item-list-heading cart-item-list-heading--total">{{ 'cart.items.total' | t }}</div>
+              </div>
+            </div>
+          {% else %}
+            <div data-merge-list-item="item-key:empty" >
+              <div class="fully-spaced-row--large align-centre" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+                <div class="align-center">
+                  {%- if section.settings.empty_icon == 'basket' -%}
+                    <div class="lightly-spaced-row"><span class="icon--large">{%- render 'icon-basket' -%}</span></div>
+                  {%- elsif section.settings.empty_icon == 'bag' -%}
+                    <div class="lightly-spaced-row"><span class="icon--large">{%- render 'icon-bag' -%}</span></div>
+                  {%- elsif section.settings.empty_icon == 'cart' -%}
+                    <div class="lightly-spaced-row"><span class="icon--large">{%- render 'icon-cart' -%}</span></div>
+                  {%- endif -%}
+
+                  {%- if section.settings.empty_heading != blank -%}
+                    <h1 class="majortitle">{{ section.settings.empty_heading }}</h1>
+                  {%- endif -%}
+
+                  {%- if section.settings.empty_text != blank -%}
+                    <div class="rte">{{ section.settings.empty_text }}</div>
+                  {%- endif -%}
+
+                  {%- if section.settings.empty_button_text != blank -%}
+                    <div class="button-row">
+                      <a class="{% if section.settings.empty_button_style != 'link' %}btn btn--{{ section.settings.empty_button_style }}{% else %}small-feature-link{% endif %} button-row__btn" href="{{ section.settings.empty_button_link }}">{{ section.settings.empty_button_text | escape }}</a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% for item in cart.items %}
+            <div data-merge-list-item="item-key:{{ item.key }}|{{ item.final_price }}{% for discount_allocation in item.line_level_discount_allocations %}|{{ discount_allocation.discount_application.title | escape }}{% endfor %}"
+                {% comment %} Discount items are difficult to predict - BOGOFs appear as a separate item with the same key as an existing item - simpler to always refresh {% endcomment %}
+                {%- if item.line_level_discount_allocations == empty -%}
+                data-merge-cache="{{ item.key }}|{{ item.quantity }}|{{ item.final_line_price }}|{% if item.selling_plan_allocation %}{{ item.selling_plan_allocation.selling_plan.id }}{% endif %}"
+                {%- endif -%}>
+              {%- render 'cart-item', item: item, forloop: forloop, animate: true -%}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+        <div class="checkout-subtotal-container spaced-row{% if cart.items == empty %} hidden{% endif %}" data-merge-attributes="subtotal-container">
+          <div class="flexible-layout">
+            <div class="checkout-subtotal-container__left column column--half">
+              {% if section.settings.show_order_note %}
+                <cart-note class="cart-note block{% if section.settings.show_shipping_calculator %} lightly-spaced-row{% endif %}">
+                  <label class="block" for="note">{{ 'cart.note.label' | t }}</label>
+                  <textarea id="note" name="note">{{ cart.note }}</textarea>
+                </cart-note>
+              {% endif %}
+
+              {% if section.settings.show_shipping_calculator %}
+                <toggle-target class="block link underline very-lightly-spaced-row" role="button" tabindex="0" data-toggle-target="#{{ section.id }}-shipping-calculator-container" data-toggle-close-label="{{ 'cart.shipping_calculator.hide' | t }}">{{ 'cart.shipping_calculator.show' | t }}</toggle-target>
+                <div id="{{ section.id }}-shipping-calculator-container" class="toggle-target toggle-target--hidden">
+                  <div class="toggle-target-container">
+                    {%- render 'shipping-calculator', id: section.id, default_country: section.settings.shipping_calculator_default_country -%}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="checkout-subtotal-container__right column column--half mobile-align-center">
+              {%- capture subtotal_and_checkout -%}
+                <div data-merge="total">
+                  {%- if cart.cart_level_discount_applications != blank -%}
+                    <ul class="cart-discount-list">
+                      {%- for discount_application in cart.cart_level_discount_applications -%}
+                        <li class="cart-discount cart-discount--inline">
+                          <span class="cart-discount__label">
+                              <span class="cart-discount__icon">{% render 'icon-label' %}</span>
+                              <span class="cart-discount__title">{{ discount_application.title | escape_once }}</span>
+                          </span>
+                          <span class="cart-discount__amount theme-money">{{ discount_application.total_allocated_amount | money }}</span>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+
+                  {%- assign cart_page_savings = cart.original_total_price | minus: cart.total_price -%}
+                  {%- if cart_page_savings > 0 -%}
+                    <div class="cart-summary-savings">
+                      <span>Savings</span>
+                      <span class="theme-money">-{{ cart_page_savings | money }}</span>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if cart_page_freeship_met -%}
+                    <div class="cart-summary-shipping">
+                      <span>Shipping</span>
+                      <span class="cart-summary-shipping__amount">
+                        <s class="cart-summary-shipping__was theme-money">$6.00</s>
+                        <span>Free</span>
+                      </span>
+                    </div>
+                  {%- endif -%}
+
+                  <h2 class="subtotal h2">
+                    {{ 'cart.summary.subtotal' | t }}:
+                    <span class="theme-money">
+                      {%- if settings.cart_currency_code_enabled -%}
+                        {{- cart.total_price | money_with_currency -}}
+                      {%- else -%}
+                        {{- cart.total_price | money -}}
+                      {%- endif -%}
+                    </span>
+                  </h2>
+
+                  {%- if section.settings.show_tax_and_shipping -%}
+                    <div class="cart-policies rte">
+                      {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                        {{- 'cart.general.taxes_included_shipping_at_checkout_html' | t: link: shop.shipping_policy.url -}}
+                      {%- elsif cart.taxes_included -%}
+                        {{- 'cart.general.taxes_included_shipping_at_checkout' | t -}}
+                      {%- elsif shop.shipping_policy.body != blank -%}
+                        {{- 'cart.general.taxes_and_shipping_at_checkout_html' | t: link: shop.shipping_policy.url -}}
+                      {%- else -%}
+                        {{- 'cart.general.taxes_and_shipping_at_checkout' | t -}}
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                {% if section.settings.cart_terms_page != blank %}
+                  <terms-agreement class="terms-agreement rte">
+                    <input type="checkbox" id="terms" />
+                    <label for="terms">{{ 'cart.terms.agreement_html' | t: terms_url: section.settings.cart_terms_page }}</label>
+                  </terms-agreement>
+                {% endif %}
+
+                <div class="checkout-col cart-page-footer lightly-spaced-row">
+                  {%- liquid
+                    assign btn_label = section.settings.checkout_label | default: 'Checkout'
+                    assign btn_sep = section.settings.button_separator | default: '•'
+                    assign checkout_icon = section.settings.checkout_icon | default: 'lock'
+                    assign trust_icon = section.settings.cta_trust_icon | default: 'return'
+                    assign trust_bar_icon_1 = section.settings.trust_bar_1_icon | default: 'map_pin'
+                    assign trust_bar_icon_2 = section.settings.trust_bar_2_icon | default: 'box'
+                    if settings.cart_currency_code_enabled
+                      assign btn_total = cart.total_price | money_with_currency
+                    else
+                      assign btn_total = cart.total_price | money
+                    endif
+                  -%}
+
+                  <span class="update-cart-container">
+                    <button type="submit" name="update">{{ 'cart.general.update' | t }}</button>
+                  </span>
+
+                  <button type="submit" class="btn btn--large btn--wide cart-page-checkout-btn" id="update-cart" name="checkout">
+                    {%- if section.settings.show_checkout_icon != false -%}
+                      {% render 'icon', icon: checkout_icon, size: 'small' %}
+                    {%- endif -%}
+                    <span class="cart-page-checkout-label">
+                      {{- btn_label | escape -}}
+                      {%- if section.settings.show_total_in_button != false -%}
+                        <span aria-hidden="true"> {{ btn_sep | escape }} {{ btn_total }}</span>
+                      {%- endif -%}
+                    </span>
+                  </button>
+
+                  {%- if section.settings.show_cta_trust != false -%}
+                    <div class="cart-page-cta-trust">
+                      {%- if trust_icon != 'none' -%}
+                        <span class="cart-page-cta-trust-icon">{% render 'icon', icon: trust_icon, size: 'small' %}</span>
+                      {%- endif -%}
+                      <span>{{ section.settings.cta_trust_text | default: '14 días para cambios gratis en tienda o por correo' | escape }}</span>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if section.settings.show_additional_checkout_buttons and additional_checkout_buttons and section.settings.cart_terms_page == blank -%}
+                    <div class="cart-page-express">
+                      <p class="cart-page-express__label">{{ section.settings.express_checkout_label | default: 'Or check out with' | escape }}</p>
+                      <div class="additional-checkout-buttons">
+                        {{ content_for_additional_checkout_buttons }}
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if section.settings.show_trust_bar != false -%}
+                    <div class="cart-page-trust-bar">
+                      <div class="cart-page-trust-bar__item">
+                        {%- if trust_bar_icon_1 != 'none' -%}
+                          <span class="cart-page-trust-bar__icon">{% render 'icon', icon: trust_bar_icon_1, size: 'small' %}</span>
+                        {%- endif -%}
+                        <span>{{ section.settings.trust_bar_1_text | default: 'free pickup disponible in Cupey Store' | escape }}</span>
+                      </div>
+                      <div class="cart-page-trust-bar__item">
+                        {%- if trust_bar_icon_2 != 'none' -%}
+                          <span class="cart-page-trust-bar__icon">{% render 'icon', icon: trust_bar_icon_2, size: 'small' %}</span>
+                        {%- endif -%}
+                        <span>{{ section.settings.trust_bar_2_text | default: 'empacamos el mismo dia' | escape }}</span>
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if section.settings.show_payment_icons != false -%}
+                    <div class="cart-page-payment-icons">
+                      <div class="cart-page-payment-icons-row">
+                        {%- liquid
+                          assign payment_order = 'apple_pay,shopify_pay,paypal,visa,master,discover,american_express,diners_club,jcb' | split: ','
+                          assign shown_types = '|'
+                        -%}
+                        {%- if section.settings.payment_icon_custom != blank -%}
+                          <span class="cart-page-payment-icon cart-page-payment-icon--custom">
+                            {%- render 'image', image: section.settings.payment_icon_custom, sizes: '64px', widths: '64, 128' -%}
+                          </span>
+                        {%- endif -%}
+                        {%- for type in payment_order -%}
+                          {%- assign type_needle = '|' | append: type | append: '|' -%}
+                          {%- for enabled in shop.enabled_payment_types -%}
+                            {%- if enabled == type -%}
+                              {%- unless shown_types contains type_needle -%}
+                                <span class="cart-page-payment-icon cart-page-payment-icon--{{ type }}">
+                                  {{ type | payment_type_svg_tag }}
+                                </span>
+                                {%- assign shown_types = shown_types | append: type | append: '|' -%}
+                              {%- endunless -%}
+                              {%- break -%}
+                            {%- endif -%}
+                          {%- endfor -%}
+                        {%- endfor -%}
+                        {%- for enabled in shop.enabled_payment_types -%}
+                          {%- if enabled == 'google_pay' -%}
+                            {%- continue -%}
+                          {%- endif -%}
+                          {%- assign enabled_needle = '|' | append: enabled | append: '|' -%}
+                          {%- unless shown_types contains enabled_needle -%}
+                            <span class="cart-page-payment-icon cart-page-payment-icon--{{ enabled }}">
+                              {{ enabled | payment_type_svg_tag }}
+                            </span>
+                            {%- assign shown_types = shown_types | append: enabled | append: '|' -%}
+                          {%- endunless -%}
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if section.settings.show_continue_shopping -%}
+                    <a class="continue-shopping underline block lightly-spaced-row-above" href="{{ continue_shopping_url }}">{{ 'cart.summary.continue_shopping' | t }}</a>
+                  {%- endif -%}
+                </div>
+              {%- endcapture -%}
+
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                  {%- when '@app' -%}
+                    <div class="inline-block{% unless forloop.first %} mt-4{% endunless %}{% unless forloop.last %} mb-4{% endunless %}" {{ block.shopify_attributes }}>
+                      {%- render block -%}
+                    </div>
+
+                  {%- when 'subtotal-and-checkout' -%}
+                    <div {{ block.shopify_attributes }}>
+                      {{- subtotal_and_checkout -}}
+                    </div>
+                {%- endcase -%}
+              {%- else -%}
+                {{- subtotal_and_checkout -}}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </cart-form>
+</div>
+
+
+{% schema %}
+{
+  "name": "Cart page",
+  "class": "page-section-spacing",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_page_title",
+      "label": "Show page title",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Cart items"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_backorder_text",
+      "label": "Show backorder text",
+      "default": false,
+      "info": "Only shows for products which use Shopify inventory tracking and are available to purchase when out of stock."
+    },
+    {
+      "type": "select",
+      "id": "show_inventory_notice",
+      "label": "Show inventory notice",
+      "options": [
+        {
+          "label": "Never",
+          "value": "never"
+        },
+        {
+          "label": "When inventory low",
+          "value": "low"
+        },
+        {
+          "label": "Always",
+          "value": "always"
+        }
+      ],
+      "default": "low"
+    },
+    {
+      "type": "select",
+      "id": "show_inventory_count",
+      "label": "Show count in inventory notice",
+      "options": [
+        {
+          "label": "Never",
+          "value": "never"
+        },
+        {
+          "label": "When inventory low",
+          "value": "low"
+        },
+        {
+          "label": "Always",
+          "value": "always"
+        }
+      ],
+      "default": "low"
+    },
+    {
+      "type": "range",
+      "id": "inventory_threshold",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "label": "Low inventory threshold",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Order summary"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_order_note",
+      "label": "Show order note",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tax_and_shipping",
+      "label": "Show tax status and shipping policy link",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_additional_checkout_buttons",
+      "label": "Show additional checkout options",
+      "default": true,
+      "info": "Shop Pay / Apple Pay / etc. Shown in a separate group below the main checkout button."
+    },
+    {
+      "type": "text",
+      "id": "express_checkout_label",
+      "label": "Express checkout group label",
+      "default": "Or check out with",
+      "visible_if": "{{ section.settings.show_additional_checkout_buttons }}"
+    },
+    {
+      "type": "text",
+      "id": "checkout_label",
+      "label": "Checkout button label",
+      "default": "Checkout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_total_in_button",
+      "label": "Show total in checkout button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_separator",
+      "label": "Separator in checkout button",
+      "default": "•",
+      "visible_if": "{{ section.settings.show_total_in_button }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkout_icon",
+      "label": "Show lock icon on checkout button",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "checkout_icon",
+      "label": "Checkout button icon",
+      "default": "lock",
+      "options": [
+        { "value": "lock", "label": "Lock" },
+        { "value": "check_mark_in_circle", "label": "Check mark" },
+        { "value": "credit_card", "label": "Credit card" }
+      ],
+      "visible_if": "{{ section.settings.show_checkout_icon }}"
+    },
+    {
+      "type": "header",
+      "content": "Trust & payments"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta_trust",
+      "label": "Show trust line under checkout",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "cta_trust_icon",
+      "label": "Trust line icon",
+      "default": "return",
+      "options": [
+        { "value": "none", "label": "No icon" },
+        { "value": "return", "label": "Return" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "lock", "label": "Lock" }
+      ],
+      "visible_if": "{{ section.settings.show_cta_trust }}"
+    },
+    {
+      "type": "text",
+      "id": "cta_trust_text",
+      "label": "Trust line text",
+      "default": "14 días para cambios gratis en tienda o por correo",
+      "visible_if": "{{ section.settings.show_cta_trust }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_bar",
+      "label": "Show trust bar",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "trust_bar_1_icon",
+      "label": "Trust bar column 1 icon",
+      "default": "map_pin",
+      "options": [
+        { "value": "none", "label": "No icon" },
+        { "value": "map_pin", "label": "Map pin" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "box", "label": "Box" },
+        { "value": "return", "label": "Return" }
+      ],
+      "visible_if": "{{ section.settings.show_trust_bar }}"
+    },
+    {
+      "type": "text",
+      "id": "trust_bar_1_text",
+      "label": "Trust bar column 1 text",
+      "default": "free pickup disponible in Cupey Store",
+      "visible_if": "{{ section.settings.show_trust_bar }}"
+    },
+    {
+      "type": "select",
+      "id": "trust_bar_2_icon",
+      "label": "Trust bar column 2 icon",
+      "default": "box",
+      "options": [
+        { "value": "none", "label": "No icon" },
+        { "value": "box", "label": "Box" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "map_pin", "label": "Map pin" },
+        { "value": "return", "label": "Return" }
+      ],
+      "visible_if": "{{ section.settings.show_trust_bar }}"
+    },
+    {
+      "type": "text",
+      "id": "trust_bar_2_text",
+      "label": "Trust bar column 2 text",
+      "default": "empacamos el mismo dia",
+      "visible_if": "{{ section.settings.show_trust_bar }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_icon_custom",
+      "label": "Custom payment icon (appears first)",
+      "info": "Optional. Store payment logos still show after it.",
+      "visible_if": "{{ section.settings.show_payment_icons }}"
+    },
+    {
+      "type": "url",
+      "id": "cart_terms_page",
+      "label": "Terms and conditions link",
+      "info": "Additional checkout buttons will be hidden when cart terms are shown"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_continue_shopping",
+      "label": "Show continue shopping link",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "continue_shopping_url",
+      "label": "Continue shopping link",
+      "info": "If not entered, link will be the first collection (alphabetically) of the first product in the cart."
+    },
+    {
+      "type": "header",
+      "content": "Empty cart"
+    },
+    {
+      "type": "select",
+      "id": "empty_icon",
+      "label": "Icon",
+      "default": "basket",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "bag",
+          "label": "Bag"
+        },
+        {
+          "value": "basket",
+          "label": "Basket"
+        },
+        {
+          "value": "cart",
+          "label": "Cart"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "Heading",
+      "default": "Your cart is empty"
+    },
+    {
+      "type": "richtext",
+      "id": "empty_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "empty_button_text",
+      "label": "Button text",
+      "default": "Start shopping"
+    },
+    {
+      "type": "url",
+      "id": "empty_button_link",
+      "label": "Button link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "select",
+      "id": "empty_button_style",
+      "label": "Button style",
+      "default": "primary",
+      "options": [
+        {
+          "label": "Primary",
+          "value": "primary"
+        },
+        {
+          "label": "Secondary",
+          "value": "secondary"
+        },
+        {
+          "label": "Link",
+          "value": "link"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Shipping rates calculator"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_calculator",
+      "label": "Show",
+      "default": false
+    },
+    {
+      "visible_if": "{{ section.settings.show_shipping_calculator }}",
+      "type": "text",
+      "id": "shipping_calculator_default_country",
+      "label": "Default country selection",
+      "default": "United States"
+    },
+    {
+      "visible_if": "{{ section.settings.show_shipping_calculator }}",
+      "type": "paragraph",
+      "content": "If your customer is logged-in, the country in his default shipping address will be selected. If you are not sure about the spelling to use here, refer to your first checkout page dropdown."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "subtotal-and-checkout",
+      "name": "Subtotal and checkout",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,141 @@
+{
+  "type": "aside",
+  "name": "Overlay Group",
+  "sections": {
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "custom_css": [
+        ".btn--large {padding: 16px 25px; font-size: 14px; border-radius: 10px;}",
+        ",.text-box {font-size: 12px; padding: 10px 12px 10px;}"
+      ],
+      "settings": {
+        "show_order_note": false,
+        "show_tax_and_shipping": false,
+        "enable_direct_cart": true,
+        "cart_terms_page": "",
+        "show_backorder_text": true,
+        "show_inventory_notice": "low",
+        "show_inventory_count": "low",
+        "inventory_threshold": 1,
+        "show_announcement": false,
+        "announcement_position": "below-checkout",
+        "announcement_text": "Envio $6 o GRATIS en ordenes $75+  🇵🇷",
+        "announcement_icon": "lock",
+        "announcement_icon_size": "small",
+        "announcement_enable_box": true,
+        "announcement_box_color": "#ececec",
+        "empty_icon": "bag",
+        "empty_heading": "Your bag is waiting for something special",
+        "empty_text": "<p>Free shipping on orders over $75 | Hand-packed with love in Cupey</p>",
+        "empty_button_text": "Shop our New Arrivals",
+        "empty_button_link": "shopify://collections/new-arrivals",
+        "empty_button_style": "primary",
+        "empty_enable_custom_colors": false,
+        "empty_color_background": "#ffffff",
+        "empty_color_background_gradient": "",
+        "empty_color_text": "#171717",
+        "enable_cross_sells": false,
+        "show_payment_icons": true,
+        "item_image_width": 80,
+        "show_you_save": false,
+        "show_size_edit": true,
+        "show_value_props": true,
+        "value_props_position": "below-items",
+        "value_props_columns": "3",
+        "value_prop_1_width": 30,
+        "value_prop_2_width": 35,
+        "value_prop_3_width": 35,
+        "value_props_show_top_bar": false,
+        "value_props_show_bottom_bar": false,
+        "value_prop_1_icon": "map_pin",
+        "value_prop_1_text": "Pickup gratis en Cupey",
+        "value_prop_2_icon": "box",
+        "value_prop_2_text": "Empacamos el mismo dia",
+        "value_prop_3_icon": "return",
+        "value_prop_3_text": "7 días cambios gratis",
+        "discount_toggle_label": "Add discount or gift card",
+        "subtotal_size": "match",
+        "footer_bg_color": "#F8F8F6",
+        "show_footer_shadow": false,
+        "show_shipping_line": true,
+        "show_checkout_icon": true,
+        "checkout_icon": "lock",
+        "show_cta_trust": true,
+        "cta_trust_icon": "none",
+        "cta_trust_text": "🔄 7 días para cambios sin complicaciones",
+        "show_freeship_chip": true,
+        "payment_icon_height": 18,
+        "payment_icon_gap": 6,
+        "payment_icons_pad_top": 12,
+        "cross_sell_title": "You may also like",
+        "cross_sell_products": [],
+        "enable_automatic_cross_sells": true,
+        "croll_sell_color_scheme": "1",
+        "show_custom_payment_images": true,
+        "payment_icon_1": "shopify://shop_images/ath-movil-bg-white_2.png"
+      }
+    },
+    "pop-up": {
+      "type": "pop-up",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "NEWSLETTER",
+            "heading_size": "h4"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Receive 15% OFF your first order and get priority access to sales & exclusive deals.</p>",
+            "text_size": "small-text"
+          }
+        },
+        "newsletter-signup": {
+          "type": "newsletter-signup",
+          "settings": {
+            "button_style": "secondary"
+          }
+        },
+        "21558aaf-7983-4c39-a2d9-5e803d85df82": {
+          "type": "image",
+          "settings": {
+            "image_position_desktop": "right",
+            "image_position_mobile": "top"
+          }
+        },
+        "b8e4317d-d3d2-4b4c-818a-cd6ee79463b2": {
+          "type": "social",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "newsletter-signup",
+        "21558aaf-7983-4c39-a2d9-5e803d85df82",
+        "b8e4317d-d3d2-4b4c-818a-cd6ee79463b2"
+      ],
+      "disabled": true,
+      "settings": {
+        "trigger": "delay",
+        "delay": 6,
+        "show_to_guests_only": true,
+        "show_on_mobile": true,
+        "dismiss_days": 30,
+        "position": "justify-end items-end",
+        "text_align": "text-center",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "bg_color": "#232323",
+        "bg_grad": "",
+        "tint_opacity": 0
+      }
+    }
+  },
+  "order": [
+    "cart-drawer",
+    "pop-up"
+  ]
+}

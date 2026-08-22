@@ -1,0 +1,12 @@
+{%- assign atc_color = settings.atc_button_color -%}
+{%- if atc_color != blank -%}
+.add-to-cart {
+  background-color: {{ atc_color }} !important;
+  border-color: {{ atc_color }} !important;
+}
+{%- else -%}
+.add-to-cart {
+  background-color: #cc5a73 !important;
+  border-color: #cc5a73 !important;
+}
+{%- endif -%}
