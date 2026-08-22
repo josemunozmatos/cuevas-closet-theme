@@ -1949,6 +1949,21 @@ const MainNavigation = class extends HTMLElement {
     // transparent header hover
     this.addEventListener('mouseenter', this.handleNavHover.bind(this));
     this.addEventListener('mouseleave', this.handleNavHover.bind(this));
+
+    // Touch devices: close open dropdowns when tapping outside (mouseleave is ignored)
+    this.boundCloseOpenDropdownsOnOutsideTap = (evt) => {
+      if (!window.matchMedia('(hover: none)').matches) return;
+      if (!this.querySelector('.navigation__item--show-children')) return;
+      if (evt.target.closest('.navigation__item--with-children, .navigation__tier-2-container, #proxy-nav')) return;
+      this.querySelectorAll('.navigation__item--show-children').forEach((el) => {
+        el.classList.remove('navigation__item--show-children');
+        const link = el.firstElementChild;
+        if (link) link.setAttribute('aria-expanded', false);
+      });
+      const header = this.closest('.section-header');
+      if (header) header.classList.remove('section-header--nav-open');
+    };
+    document.addEventListener('touchstart', this.boundCloseOpenDropdownsOnOutsideTap, { passive: true });
   }
 
   ensureDropdownsInPageBounds() {
@@ -2116,13 +2131,14 @@ const MainNavigation = class extends HTMLElement {
       this.mobileDrawer.closest('.mobile-navigation-drawer').scrollTo({ top: 0, left: 0, behavior: 'instant' }); // 'smooth' not working in iOS 15
     });
 
+    // Top-level only: never steal taps from nested (tier-2/3) parent links
     if (this.mobileDrawer.dataset.mobileExpandWithEntireLink === 'true') {
-      // First tap opens submenu; second tap on the same parent navigates when URL is real
-      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__item--with-children > .navigation__link', (evt, delEl) => {
+      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link', (evt, delEl) => {
         const href = delEl.getAttribute('href');
         const hasNavigableUrl = href && href !== '#' && !href.trim().toLowerCase().startsWith('javascript:');
         const isOpen = delEl.parentElement.classList.contains('navigation__item--open');
 
+        // Second tap on an already-open top-level parent with a real URL: allow navigation
         if (isOpen && hasNavigableUrl) {
           return;
         }
@@ -2131,12 +2147,20 @@ const MainNavigation = class extends HTMLElement {
         delEl.nextElementSibling.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
       });
     } else {
-      // Parent text navigates; only "#" parents (and the chevron) open the submenu
-      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__item--with-children > .navigation__link[href="#"]', (evt, delEl) => {
+      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link[href="#"]', (evt, delEl) => {
         evt.preventDefault();
         delEl.nextElementSibling.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
       });
     }
+
+    // Nested parents: label always navigates when URL is real; only "#" (and the chevron) expand
+    theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__tier-2 > .navigation__item--with-children > .navigation__link[href="#"]', (evt, delEl) => {
+      evt.preventDefault();
+      const toggle = delEl.parentElement.querySelector(':scope > .navigation__children-toggle');
+      if (toggle) {
+        toggle.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
+      }
+    });
 
     // event: close second tier
     theme.addDelegateEventListener(this.mobileDrawer, 'click', '.mobile-nav-back', (evt) => {
@@ -2198,6 +2222,12 @@ const MainNavigation = class extends HTMLElement {
   }
 
   onNavParentHoverOut(evt) {
+    // Touch-only devices synthesize mouseleave when tapping inside an open
+    // dropdown, which closed the menu and ate the first tap on child links.
+    if (window.matchMedia('(hover: none)').matches) {
+      return;
+    }
+
     // cancel opening, close after delay, and clear transforms
     const dropdownContainer = evt.currentTarget;
     clearTimeout(dropdownContainer.dataset.navOpenTimeoutId);
