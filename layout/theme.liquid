@@ -44,6 +44,9 @@
 
   {{ 'main.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'atc-button.css' | asset_url | stylesheet_tag }}
+  {%- if template.name == 'product' -%}
+    {{ 'cuevas-essential-upsell.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
 
   {%- if settings.swatch_source == 'theme' and settings.swatch_value_list != blank -%}
     <link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}" media="print" onload="this.media='all'">

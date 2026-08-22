@@ -1,0 +1,31 @@
+/* Essential Upsell — Complete the look (product page) */
+essential-upsell-frequently-bought-together-app-block > div {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+essential-upsell-frequently-bought-together-app-block > div > div:first-child {
+  padding-left: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 10px !important;
+}
+
+essential-upsell-frequently-bought-together-app-block > div > div:first-child > div:first-child {
+  font-family: var(--heading-font-family) !important;
+  font-weight: var(--heading-font-weight) !important;
+  font-size: 22px !important;
+  line-height: 1.25 !important;
+  letter-spacing: var(--heading-font-letter-spacing) !important;
+  color: rgb(var(--text-color)) !important;
+}
+
+@media (max-width: 767.98px) {
+  essential-upsell-frequently-bought-together-app-block > div {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  essential-upsell-frequently-bought-together-app-block > div > div:first-child > div:first-child {
+    font-size: 20px !important;
+  }
+}
