@@ -197,7 +197,7 @@
             "content": "{{ product.description }}<p></p>",
             "page": "",
             "custom_liquid": "",
-            "open": false,
+            "open": true,
             "variant_content": false,
             "show_in_quickbuy": false
           }
