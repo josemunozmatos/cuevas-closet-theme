@@ -134,7 +134,15 @@
           <span class="similar-styles-banner__message">{{ block.settings.message | escape }}</span>
         {%- endif -%}
         {%- if block.settings.link_text != blank -%}
-          <a class="similar-styles-banner__link underline" href="{{ banner_url }}">
+          <a
+            class="similar-styles-banner__link underline"
+            href="{{ banner_url }}"
+            data-track="similar_styles_click"
+            data-product-id="{{ product.id }}"
+            data-product-handle="{{ product.handle }}"
+            data-product-type="{{ product.type | escape }}"
+            data-destination="{{ banner_url }}"
+          >
             {{- block.settings.link_text | escape -}}
           </a>
         {%- endif -%}

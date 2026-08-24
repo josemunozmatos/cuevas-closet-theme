@@ -387,7 +387,11 @@
               {%- capture size_chart_link -%}
                 {%- if block.settings.enable_size_chart and block.settings.size_chart_page != blank -%}
                   <modal-opener data-modal="size-chart-{{ product.id }}-{{ section.id }}">
-                    <button type="button" class="link block text-sm size-chart-link" aria-haspopup="dialog">
+                    <button type="button" class="link block text-sm size-chart-link" aria-haspopup="dialog"
+                      data-track="size_guide_click"
+                      data-product-id="{{ product.id }}"
+                      data-product-handle="{{ product.handle }}"
+                      data-product-type="{{ product.type | escape }}">
                       <span class="size-chart-link__icon">{%- render 'icon', icon: 'ruler', size: 'small' -%}</span>
                       <span class="size-chart-link__text underline">{{- block.settings.size_chart_label -}}</span>
                     </button>

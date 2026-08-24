@@ -160,6 +160,9 @@
   </script>
 
   <script src="{{ 'main.js' | asset_url }}" defer></script>
+  {%- if request.page_type == 'product' -%}
+    <script src="{{ 'pdp-feature-tracking.js' | asset_url }}" defer></script>
+  {%- endif -%}
 
   {%- if request.design_mode -%}
     <script src="{{ 'theme-editor.js' | asset_url }}" defer data-contact="{{ shop.email | escape }}"></script>
