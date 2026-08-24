@@ -4,14 +4,18 @@
  *
  * After saving, click the pixel → Connect.
  *
- * Events in GA4 (G-3LLH2JC738):
+ * Events in GA4 (G-EDY692RPV2 — ID currently present on the storefront):
  * - size_guide_click
  * - similar_styles_click
  *
  * See clicks: GA4 → Reports → Engagement → Events (or Realtime to test).
+ *
+ * NOTE: Property G-3LLH2JC738 showed “No data received” and is NOT the ID
+ * currently injected on the Cuevas Closet storefront. Prefer G-EDY692RPV2
+ * unless you intentionally re-tag the store to G-3LLH2JC738.
  */
 
-const GA_MEASUREMENT_ID = 'G-3LLH2JC738';
+const GA_MEASUREMENT_ID = 'G-EDY692RPV2';
 
 (function initGtag() {
   const script = document.createElement('script');
