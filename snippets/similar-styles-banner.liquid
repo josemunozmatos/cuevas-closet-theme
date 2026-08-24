@@ -1,0 +1,144 @@
+{% doc %}
+  Shows a “similar styles” prompt under the size picker when at least one
+  variant is sold out. Maps product.type to a collection + icon.
+
+  @param {object} product - Product object
+  @param {object} block - Block settings from main-product
+  @example
+  {% render 'similar-styles-banner', product: product, block: block %}
+{% enddoc %}
+
+{%- liquid
+  assign has_sold_out_size = false
+  for variant in product.variants
+    unless variant.available
+      assign has_sold_out_size = true
+      break
+    endunless
+  endfor
+-%}
+
+{%- if has_sold_out_size -%}
+  {%- liquid
+    assign product_type_l = product.type | downcase | strip
+    assign category = 'fallback'
+    assign banner_icon = block.settings.icon_fallback
+    assign banner_custom_icon = block.settings.custom_icon_fallback
+    assign banner_collection = block.settings.collection_fallback
+
+    if block.settings.force_category != 'auto'
+      assign category = block.settings.force_category
+    else
+      assign tops_keys = block.settings.tops_types | downcase | split: ','
+      for key in tops_keys
+        assign key_clean = key | strip
+        if key_clean != blank
+          if product_type_l == key_clean or product_type_l contains key_clean
+            assign category = 'tops'
+            break
+          endif
+        endif
+      endfor
+
+      if category == 'fallback'
+        assign dresses_keys = block.settings.dresses_types | downcase | split: ','
+        for key in dresses_keys
+          assign key_clean = key | strip
+          if key_clean != blank
+            if product_type_l == key_clean or product_type_l contains key_clean
+              assign category = 'dresses'
+              break
+            endif
+          endif
+        endfor
+      endif
+
+      if category == 'fallback'
+        assign bottoms_keys = block.settings.bottoms_types | downcase | split: ','
+        for key in bottoms_keys
+          assign key_clean = key | strip
+          if key_clean != blank
+            if product_type_l == key_clean or product_type_l contains key_clean
+              assign category = 'bottoms'
+              break
+            endif
+          endif
+        endfor
+      endif
+    endif
+
+    case category
+      when 'tops'
+        assign banner_icon = block.settings.icon_tops
+        assign banner_custom_icon = block.settings.custom_icon_tops
+        assign banner_collection = block.settings.collection_tops
+        assign banner_handle = 'tops'
+      when 'dresses'
+        assign banner_icon = block.settings.icon_dresses
+        assign banner_custom_icon = block.settings.custom_icon_dresses
+        assign banner_collection = block.settings.collection_dresses
+        assign banner_handle = 'dresses'
+      when 'bottoms'
+        assign banner_icon = block.settings.icon_bottoms
+        assign banner_custom_icon = block.settings.custom_icon_bottoms
+        assign banner_collection = block.settings.collection_bottoms
+        assign banner_handle = 'bottoms'
+      else
+        assign banner_handle = ''
+    endcase
+
+    if banner_collection != blank
+      assign banner_url = banner_collection.url
+    elsif banner_handle != blank and collections[banner_handle] != blank
+      assign banner_url = collections[banner_handle].url
+    elsif block.settings.fallback_url != blank
+      assign banner_url = block.settings.fallback_url
+    elsif block.settings.collection_fallback != blank
+      assign banner_url = block.settings.collection_fallback.url
+    else
+      assign banner_url = routes.all_products_collection_url
+    endif
+
+    assign text_color = block.settings.text_color
+    assign text_rgb = text_color | color_to_rgb | split: '(' | last | split: ')' | first
+    assign show_box = block.settings.enable_box
+  -%}
+
+  <div
+    class="lightly-spaced-row similar-styles-banner{% unless block.settings.show_in_quickbuy %} not-in-quickbuy{% endunless %}"
+    {{ block.shopify_attributes }}
+  >
+    <div
+      class="product-info-block similar-styles-banner__inner with-icon{% if show_box %} text-box text-box--wide{% endif %}"
+      style="--similar-styles-text: {{ text_rgb }};{% if show_box %} --box-color: {{ block.settings.box_color }}; --box-text-color: {{ text_rgb }};{% endif %} color: rgb(var(--similar-styles-text));"
+    >
+      {%- if banner_custom_icon != blank -%}
+        {%- liquid
+          if block.settings.icon_size == 'large'
+            assign icon_sizes = '38px'
+            assign icon_widths = '38, 76'
+          else
+            assign icon_sizes = '16px'
+            assign icon_widths = '16, 32'
+          endif
+        -%}
+        <span class="icon icon--image icon--{{ block.settings.icon_size }}">
+          {%- render 'image' with banner_custom_icon, sizes: icon_sizes, widths: icon_widths -%}
+        </span>
+      {%- elsif banner_icon != blank -%}
+        {% render 'icon', icon: banner_icon, size: block.settings.icon_size %}
+      {%- endif -%}
+
+      <div class="with-icon__beside similar-styles-banner__copy">
+        {%- if block.settings.message != blank -%}
+          <span class="similar-styles-banner__message">{{ block.settings.message | escape }}</span>
+        {%- endif -%}
+        {%- if block.settings.link_text != blank -%}
+          <a class="similar-styles-banner__link underline" href="{{ banner_url }}">
+            {{- block.settings.link_text | escape -}}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}

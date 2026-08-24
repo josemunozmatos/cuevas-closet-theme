@@ -46,6 +46,26 @@
             "size_chart_page": "{{ product.metafields.custom.size_charts.value }}"
           }
         },
+        "similar_styles_banner": {
+          "type": "similar-styles",
+          "settings": {
+            "message": "Se agotó tu size?",
+            "link_text": "Mira estilos similares.",
+            "text_color": "#5B7C99",
+            "enable_box": true,
+            "box_color": "#F2F2F2",
+            "icon_size": "small",
+            "show_in_quickbuy": false,
+            "force_category": "auto",
+            "tops_types": "top, tops, blusa, blouse, shirt, camisa, crop, tee",
+            "dresses_types": "dress, dresses, vestido, vestidos, romper, jumpsuit",
+            "bottoms_types": "bottom, bottoms, pant, pants, pantalon, pantalones, jean, jeans, short, shorts, skirt, falda",
+            "icon_tops": "shirt",
+            "icon_dresses": "dress",
+            "icon_bottoms": "pants",
+            "icon_fallback": "shirt"
+          }
+        },
         "inventory_level_HPhj3a": {
           "type": "inventory-level",
           "settings": {
@@ -223,6 +243,7 @@
         "divider",
         "variant-picker",
         "inventory_level_HPhj3a",
+        "similar_styles_banner",
         "richtext_k7LrB4",
         "richtext_9XbtMe",
         "richtext_xc9rAe",

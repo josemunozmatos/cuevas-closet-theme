@@ -7636,6 +7636,26 @@ variant-picker.variant-picker--pre-last-selection.variant-picker--product-availa
 .product-inventory .icon-container .icon {
   vertical-align: top;
 }
+
+.similar-styles-banner__inner {
+  width: 100%;
+}
+.similar-styles-banner__copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35em;
+  color: inherit;
+}
+.similar-styles-banner__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.similar-styles-banner__inner .icon {
+  color: inherit;
+  flex-shrink: 0;
+}
 .product-inventory .icon .svg-part-circle {
   fill: rgb(var(--body-bg-color));
 }

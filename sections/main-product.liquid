@@ -405,6 +405,9 @@
               %}
             </div>
 
+          {% when 'similar-styles' %}
+            {% render 'similar-styles-banner', product: product, block: block %}
+
           {% when 'buy-buttons' %}
             <div class="input-row" {{ block.shopify_attributes }}>
               {% form 'product', product, id: product_form_id, class: 'form js-product-form', data-product-id: product.id %}
@@ -1807,6 +1810,230 @@
         }
       ],
       "limit": 1
+    },
+    {
+      "type": "similar-styles",
+      "name": "Similar styles (sold out)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows below the size picker only when 1+ variants are sold out. Links and icons follow the product type (tops, dresses, bottoms)."
+        },
+        {
+          "type": "text",
+          "id": "message",
+          "label": "Message",
+          "default": "Se agotó tu size?"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text",
+          "default": "Mira estilos similares."
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text & icon color",
+          "default": "#5B7C99"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_box",
+          "label": "Show background box",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "box_color",
+          "label": "Background color",
+          "default": "#F2F2F2"
+        },
+        {
+          "type": "select",
+          "id": "icon_size",
+          "label": "Icon size",
+          "default": "small",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "large", "label": "Large" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_in_quickbuy",
+          "label": "Show in quick buy",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Category detection"
+        },
+        {
+          "type": "select",
+          "id": "force_category",
+          "label": "Force category",
+          "info": "Auto uses Product type. Override when a product type is unusual.",
+          "default": "auto",
+          "options": [
+            { "value": "auto", "label": "Auto (from product type)" },
+            { "value": "tops", "label": "Tops" },
+            { "value": "dresses", "label": "Dresses" },
+            { "value": "bottoms", "label": "Bottoms" },
+            { "value": "fallback", "label": "Fallback" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "tops_types",
+          "label": "Tops — product types",
+          "default": "top, tops, blusa, blouse, shirt, camisa, crop, tee",
+          "info": "Comma-separated. Matched against Product type (case-insensitive)."
+        },
+        {
+          "type": "text",
+          "id": "dresses_types",
+          "label": "Dresses — product types",
+          "default": "dress, dresses, vestido, vestidos, romper, jumpsuit"
+        },
+        {
+          "type": "text",
+          "id": "bottoms_types",
+          "label": "Bottoms — product types",
+          "default": "bottom, bottoms, pant, pants, pantalon, pantalones, jean, jeans, short, shorts, skirt, falda"
+        },
+        {
+          "type": "header",
+          "content": "Tops mapping"
+        },
+        {
+          "type": "collection",
+          "id": "collection_tops",
+          "label": "Tops collection"
+        },
+        {
+          "type": "select",
+          "id": "icon_tops",
+          "label": "Tops icon",
+          "default": "shirt",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "shirt", "label": "Top / shirt (Tabler)" },
+            { "value": "dress", "label": "Dress (Phosphor)" },
+            { "value": "pants", "label": "Pants (Phosphor)" },
+            { "value": "hanger", "label": "Hanger (Tabler)" },
+            { "value": "shoe", "label": "Shoe (Tabler)" },
+            { "value": "silhouette", "label": "Silhouette" },
+            { "value": "eye", "label": "Eye" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon_tops",
+          "label": "Custom tops icon"
+        },
+        {
+          "type": "header",
+          "content": "Dresses mapping"
+        },
+        {
+          "type": "collection",
+          "id": "collection_dresses",
+          "label": "Dresses collection"
+        },
+        {
+          "type": "select",
+          "id": "icon_dresses",
+          "label": "Dresses icon",
+          "default": "dress",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "shirt", "label": "Top / shirt (Tabler)" },
+            { "value": "dress", "label": "Dress (Phosphor)" },
+            { "value": "pants", "label": "Pants (Phosphor)" },
+            { "value": "hanger", "label": "Hanger (Tabler)" },
+            { "value": "shoe", "label": "Shoe (Tabler)" },
+            { "value": "silhouette", "label": "Silhouette" },
+            { "value": "eye", "label": "Eye" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon_dresses",
+          "label": "Custom dresses icon"
+        },
+        {
+          "type": "header",
+          "content": "Bottoms mapping"
+        },
+        {
+          "type": "collection",
+          "id": "collection_bottoms",
+          "label": "Bottoms collection"
+        },
+        {
+          "type": "select",
+          "id": "icon_bottoms",
+          "label": "Bottoms icon",
+          "default": "pants",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "shirt", "label": "Top / shirt (Tabler)" },
+            { "value": "dress", "label": "Dress (Phosphor)" },
+            { "value": "pants", "label": "Pants (Phosphor)" },
+            { "value": "hanger", "label": "Hanger (Tabler)" },
+            { "value": "shoe", "label": "Shoe (Tabler)" },
+            { "value": "silhouette", "label": "Silhouette" },
+            { "value": "eye", "label": "Eye" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon_bottoms",
+          "label": "Custom bottoms icon"
+        },
+        {
+          "type": "header",
+          "content": "Fallback (unmatched types)"
+        },
+        {
+          "type": "collection",
+          "id": "collection_fallback",
+          "label": "Fallback collection"
+        },
+        {
+          "type": "url",
+          "id": "fallback_url",
+          "label": "Fallback URL",
+          "info": "Used only if no collection is set for the matched category."
+        },
+        {
+          "type": "select",
+          "id": "icon_fallback",
+          "label": "Fallback icon",
+          "default": "shirt",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "shirt", "label": "Top / shirt (Tabler)" },
+            { "value": "dress", "label": "Dress (Phosphor)" },
+            { "value": "pants", "label": "Pants (Phosphor)" },
+            { "value": "hanger", "label": "Hanger (Tabler)" },
+            { "value": "shoe", "label": "Shoe (Tabler)" },
+            { "value": "silhouette", "label": "Silhouette" },
+            { "value": "eye", "label": "Eye" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon_fallback",
+          "label": "Custom fallback icon"
+        }
+      ]
     },
     {
       "type": "buy-buttons",
