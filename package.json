@@ -1,0 +1,19 @@
+{
+  "name": "cuevas-closet-theme",
+  "version": "1.0.0",
+  "description": "Cuevas Closet Shopify theme (Symmetry-based). Local tooling via the Shopify CLI.",
+  "private": true,
+  "scripts": {
+    "dev": "shopify theme dev",
+    "check": "shopify theme check",
+    "check:fix": "shopify theme check --auto-correct",
+    "pull": "shopify theme pull",
+    "push": "shopify theme push"
+  },
+  "devDependencies": {
+    "@shopify/cli": "4.7.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
