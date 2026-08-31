@@ -11393,7 +11393,7 @@ button[aria-label*="size"] {
   display: block;
   font-size: 11px;
   line-height: 1.35;
-  color: rgb(var(--text-color) / 0.72);
+  color: rgb(var(--text-color)/0.72);
 }
 
 .product-breadcrumbs--mobile .breadcrumbs-list {
