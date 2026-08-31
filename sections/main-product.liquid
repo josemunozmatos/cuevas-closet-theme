@@ -249,6 +249,21 @@
       {%- if section.settings.enable_sticky_atc -%}
         <a class="sticky-atc-anchor" id="product-info" rel="nofollow"></a>
       {%- endif -%}
+
+      {%- if section.settings.show_breadcrumbs -%}
+        {%- capture mobile_breadcrumb_divider -%}
+          <span class="breadcrumbs-divider" aria-hidden="true">|</span>
+        {%- endcapture -%}
+        <div class="product-breadcrumbs product-breadcrumbs--mobile mobile-only not-in-quickbuy">
+          {% render 'breadcrumbs',
+            divider: mobile_breadcrumb_divider,
+            show_next_prev: false,
+            skip_structured_data: true,
+            class: 'breadcrumbs--mobile'
+          %}
+        </div>
+      {%- endif -%}
+
       {% for block in section.blocks %}
         {% case block.type %}
           {% when '@app' %}

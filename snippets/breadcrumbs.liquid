@@ -3,6 +3,8 @@
   - show_collection_listing_link {boolean} [optional] - Whether to show the collections list link. Default is false.
   - show_next_prev {boolean} [optional] - Whether to show next/previous product links (product template). Default is false.
   - show_rss_link {boolean} [optional] - Whether to show an rss link (blog template). Default is false.
+  - skip_structured_data {boolean} [optional] - Skip JSON-LD output (e.g. when rendering a second instance). Default is false.
+  - class {string} [optional] - Extra CSS class names for the nav element.
   - divider {string} [optional] - Markup to use for the divider.
   - prev_icon {string} [optional] - Markup to use for the previous (product) button.
   - next_icon {string} [optional] - Markup to use for the next (product) button.
@@ -17,6 +19,9 @@
 {%- liquid
 assign show_crumbs = true
 assign show_structured_data = true
+if skip_structured_data
+  assign show_structured_data = false
+endif
 assign show_collection_listing_link = false
 assign breadcrumbs_title = 'general.breadcrumbs.title' | t
 assign home_title = 'general.breadcrumbs.home' | t
@@ -165,7 +170,7 @@ endif
 {%- endcapture -%}
 
 {%- capture crumbs_html -%}
-<nav class="breadcrumbs" aria-label="{{ breadcrumbs_title }}">
+<nav class="breadcrumbs{% if class != blank %} {{ class }}{% endif %}" aria-label="{{ breadcrumbs_title }}">
   <ol class="breadcrumbs-list">
     <li class="breadcrumbs-list__item">
       <a class="breadcrumbs-list__link" href="{{ routes.root_url }}">{{ home_title | escape }}</a> {{ divider }}

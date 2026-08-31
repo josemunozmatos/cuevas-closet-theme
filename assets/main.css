@@ -11378,3 +11378,65 @@ button[aria-label*="size"] {
 /* ============================================
    END SIZE CHART FIX
    ============================================ */
+
+/* ============================================
+   MOBILE PRODUCT BREADCRUMBS (Pink Lily-style)
+   Below gallery, above title — compact single line
+   ============================================ */
+
+.product-breadcrumbs--mobile {
+  margin: 0 0 0.5em;
+  padding: 0.7em 0 0.15em;
+}
+
+.product-breadcrumbs--mobile .breadcrumbs--mobile {
+  display: block;
+  font-size: 11px;
+  line-height: 1.35;
+  color: rgb(var(--text-color) / 0.72);
+}
+
+.product-breadcrumbs--mobile .breadcrumbs-list {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.product-breadcrumbs--mobile .breadcrumbs-list__item {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: baseline;
+  max-width: 100%;
+}
+
+.product-breadcrumbs--mobile .breadcrumbs-list__item:last-child {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.product-breadcrumbs--mobile .breadcrumbs-list__link {
+  overflow: hidden;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-breadcrumbs--mobile .breadcrumbs-list__item:last-child .breadcrumbs-list__link {
+  display: block;
+  max-width: 100%;
+}
+
+.product-breadcrumbs--mobile .breadcrumbs-divider {
+  display: inline-block;
+  margin: 0 0.4em;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* ============================================
+   END MOBILE PRODUCT BREADCRUMBS
+   ============================================ */
