@@ -11215,56 +11215,53 @@ hr {
     margin-bottom: 16px;
 }
 
-/* Padding Fix */
-#shopify-section-template--18161598595185__rich_text_dGdVmF .fully-padded-row--small {
-    padding-bottom: 0px;
-    padding-top: 15px;
-}
-#shopify-section-template--18161598595185__1480591889144 .collection-slider-row {
-    margin-top: var(--section-padding);
-    margin-bottom: 0x;
-    margin-top: 24px;
+/* Homepage section spacing + Reviews title (match other hometitles) */
+.section-rich-text .fully-spaced-row--small {
+  margin-top: 8px;
+  margin-bottom: 0;
 }
 
+.section-apps .jdgm-cards-carousel {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-apps .jdgm-cards-carousel .jdgm-title {
+  font-family: var(--heading-font-family);
+  font-style: var(--heading-font-style);
+  font-weight: var(--heading-font-weight);
+  letter-spacing: var(--heading-font-letter-spacing);
+  font-size: calc(3 * var(--font-scale) + var(--base-text-size));
+  line-height: 1em;
+  margin: 0 0 8px;
+  color: rgb(var(--heading-color));
+}
+
+.section-apps .jdgm-cards-carousel .jdgm-header {
+  margin-bottom: 16px;
+}
+
+.section-apps .jdgm-cards-carousel .jdgm-content {
+  margin-bottom: 0;
+}
+
+.section-apps .fully-spaced-row--medium:has(.jdgm-cards-carousel) {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
 
 @media (max-width: 767.98px) {
-    
-    slide-show {
+  slide-show {
     display: block;
     position: relative;
     overflow: hidden;
     margin-bottom: -24px;
+  }
 }
 
-.jdgm-cards-carousel {
-    .jdgm-title {
-        font-size: 25px;
-        font-weight: 500;
-        padding-bottom: 5px;
-    }
-}
-.jdgm-cards-carousel {
-    .jdgm-cards-wrapper {
-        margin-top: -10px;
-        
-    }
-}
-    .jdgm-content {
-       
-        margin-bottom: 0px;
-    }
-}
 .jdgm-widget.jdgm-widget {
-    display: block;
-
-
+  display: block;
 }
-#shopify-section-template--18161598595185__1480591889144 .collection-slider-row {
-    margin-top: var(--section-padding);
-    margin-bottom: -0px;
-}
-
-
 
 
 /* ============================================

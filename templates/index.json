@@ -233,9 +233,12 @@
       "block_order": [
         "button_YDFENm"
       ],
+      "custom_css": [
+        ".fully-spaced-row--small {margin-top: 8px; margin-bottom: 0;}"
+      ],
       "name": "Button",
       "settings": {
-        "height": "medium",
+        "height": "small",
         "text_alignment": "center",
         "full_width": false,
         "color_scheme": "default"
@@ -305,7 +308,7 @@
             "stars_color": "",
             "arrows_color": "#000000",
             "transition_speed": 4,
-            "header_text": "Reviews:",
+            "header_text": "Reviews",
             "show_average_rating": true,
             "rating_display": "default"
           }
@@ -313,6 +316,12 @@
       },
       "block_order": [
         "judge_me_reviews_cards_carousel_63EF7r"
+      ],
+      "custom_css": [
+        ".fully-spaced-row--medium {margin-top: 24px; margin-bottom: 8px;}",
+        ".jdgm-cards-carousel {padding-top: 0; padding-bottom: 0;}",
+        ".jdgm-cards-carousel .jdgm-header {margin-bottom: 16px;}",
+        ".jdgm-cards-carousel .jdgm-content {margin-bottom: 0;}"
       ],
       "name": "Reviews",
       "settings": {
@@ -323,7 +332,7 @@
     "1480591889144": {
       "type": "featured-collection",
       "custom_css": [
-        ".collection-slider-row {margin-top: var(--section-padding); margin-bottom: -70px;}"
+        ".collection-slider-row {margin-top: var(--section-padding); margin-bottom: 0;}"
       ],
       "name": "Best Sellers",
       "settings": {
@@ -354,9 +363,12 @@
       "block_order": [
         "button_QAQNtG"
       ],
+      "custom_css": [
+        ".fully-spaced-row--small {margin-top: 8px; margin-bottom: 24px;}"
+      ],
       "name": "CTA Bestsellers",
       "settings": {
-        "height": "medium",
+        "height": "small",
         "text_alignment": "center",
         "full_width": false,
         "color_scheme": "default"
@@ -377,7 +389,9 @@
         "text_WawCNL"
       ],
       "custom_css": [
-        ".fully-padded-row--small {padding-bottom: 0px;}"
+        ".fully-padded-row--small {padding-top: 24px; padding-bottom: 0;}",
+        ".large-text {font-family: var(--heading-font-family); font-weight: var(--heading-font-weight); font-size: calc(3 * var(--font-scale) + var(--base-text-size)); line-height: 1em; margin: 0 0 20px;}",
+        ".large-text p {margin: 0;}"
       ],
       "name": "Rich text",
       "settings": {
@@ -889,12 +903,12 @@
     "featured_collection_amzWac",
     "1617293273c37b524b",
     "rich_text_YDLM9j",
-    "1767634328f7f81706",
-    "1480591889144",
-    "rich_text_tWRjTw",
     "rich_text_dGdVmF",
     "1619015739944f86f6",
     "gallery_AqUmhG",
+    "1480591889144",
+    "1767634328f7f81706",
+    "rich_text_tWRjTw",
     "featured_collection_Lh9Xep",
     "rich_text_3gRLfn",
     "1617291721c3d3e73d",
