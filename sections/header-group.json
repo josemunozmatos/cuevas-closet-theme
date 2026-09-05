@@ -158,7 +158,7 @@
         "menu_layout": "inline-menu-center",
         "nav_featured_link": "SALE",
         "menu_linklist_mobile": "main-menu",
-        "mobile_expand_with_entire_link": true,
+        "mobile_expand_with_entire_link": false,
         "enable_mobile_promo_carousel": true,
         "enable_nav_mob_products": true,
         "nav_mob_products_title": "New Arrivals",

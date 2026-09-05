@@ -2900,6 +2900,7 @@ main-navigation {
     padding: 0.25em 0;
     line-height: 1.2em;
     white-space: normal;
+    touch-action: manipulation;
   }
   .navigation .navigation__columns {
     display: flex;
@@ -3141,6 +3142,10 @@ main-navigation {
 }
 .mobile-navigation-drawer .navigation__link {
   padding: 12px 20px;
+  touch-action: manipulation;
+}
+.mobile-navigation-drawer .navigation__children-toggle {
+  touch-action: manipulation;
 }
 .mobile-navigation-drawer .navigation__item {
   align-items: flex-start;
@@ -3313,6 +3318,10 @@ main-navigation {
   opacity: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.mobile-nav-title .mobile-nav-title__link {
+  color: inherit;
+  text-decoration: none;
 }
 .mobile-navigation-drawer--child-open .mobile-nav-title {
   visibility: visible;

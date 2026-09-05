@@ -1930,10 +1930,10 @@ const MainNavigation = class extends HTMLElement {
       el.addEventListener('mouseleave', this.onNavParentHoverOut.bind(this));
     });
 
-    // touch
+    // touch / click (touch opens on first tap; second tap navigates when the parent has a real URL)
     theme.addDelegateEventListener(this, 'touchstart', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link', (evt, el) => { this.handleTouch(evt, el); }, { passive: true });
     theme.addDelegateEventListener(this, 'touchend', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link', (evt, el) => { this.handleTouch(evt, el); });
-    theme.addDelegateEventListener(this, 'click', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link', this.onNavParentHoverIn.bind(this));
+    theme.addDelegateEventListener(this, 'click', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link', (evt, el) => { this.handleTouch(evt, el); });
 
     // keypress
     theme.addDelegateEventListener(this, 'keydown', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link', this.onNavKeydown.bind(this));
@@ -1949,6 +1949,21 @@ const MainNavigation = class extends HTMLElement {
     // transparent header hover
     this.addEventListener('mouseenter', this.handleNavHover.bind(this));
     this.addEventListener('mouseleave', this.handleNavHover.bind(this));
+
+    // Touch devices: close open dropdowns when tapping outside (mouseleave is ignored)
+    this.boundCloseOpenDropdownsOnOutsideTap = (evt) => {
+      if (!window.matchMedia('(hover: none)').matches) return;
+      if (!this.querySelector('.navigation__item--show-children')) return;
+      if (evt.target.closest('.navigation__item--with-children, .navigation__tier-2-container, #proxy-nav')) return;
+      this.querySelectorAll('.navigation__item--show-children').forEach((el) => {
+        el.classList.remove('navigation__item--show-children');
+        const link = el.firstElementChild;
+        if (link) link.setAttribute('aria-expanded', false);
+      });
+      const header = this.closest('.section-header');
+      if (header) header.classList.remove('section-header--nav-open');
+    };
+    document.addEventListener('touchstart', this.boundCloseOpenDropdownsOnOutsideTap, { passive: true });
   }
 
   ensureDropdownsInPageBounds() {
@@ -2091,10 +2106,23 @@ const MainNavigation = class extends HTMLElement {
     theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__tier-1 > .navigation__item > .navigation__children-toggle', (evt, delEl) => {
       evt.preventDefault();
 
-      // set text in header
+      // set text in header — link to parent collection when URL is real
       delEl.parentElement.classList.add('navigation__item--open');
       this.mobileDrawer.classList.add('mobile-navigation-drawer--child-open');
-      this.mobileDrawer.querySelector('.mobile-nav-title').innerText = delEl.previousElementSibling.innerText;
+      const parentLink = delEl.previousElementSibling;
+      const titleEl = this.mobileDrawer.querySelector('.mobile-nav-title');
+      const parentHref = parentLink ? parentLink.getAttribute('href') : null;
+      const parentLabel = parentLink ? parentLink.innerText.trim() : '';
+      if (parentHref && parentHref !== '#' && !parentHref.trim().toLowerCase().startsWith('javascript:')) {
+        titleEl.replaceChildren();
+        const titleLink = document.createElement('a');
+        titleLink.href = parentHref;
+        titleLink.className = 'mobile-nav-title__link';
+        titleLink.textContent = parentLabel;
+        titleEl.appendChild(titleLink);
+      } else {
+        titleEl.textContent = parentLabel;
+      }
 
       // position under header
       delEl.nextElementSibling.style.top = `${Math.ceil(this.mobileDrawer.querySelector('.navigation__mobile-header').clientHeight + 1)}px`;
@@ -2103,17 +2131,36 @@ const MainNavigation = class extends HTMLElement {
       this.mobileDrawer.closest('.mobile-navigation-drawer').scrollTo({ top: 0, left: 0, behavior: 'instant' }); // 'smooth' not working in iOS 15
     });
 
+    // Top-level only: never steal taps from nested (tier-2/3) parent links
     if (this.mobileDrawer.dataset.mobileExpandWithEntireLink === 'true') {
-      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__item--with-children > .navigation__link', (evt, delEl) => {
+      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link', (evt, delEl) => {
+        const href = delEl.getAttribute('href');
+        const hasNavigableUrl = href && href !== '#' && !href.trim().toLowerCase().startsWith('javascript:');
+        const isOpen = delEl.parentElement.classList.contains('navigation__item--open');
+
+        // Second tap on an already-open top-level parent with a real URL: allow navigation
+        if (isOpen && hasNavigableUrl) {
+          return;
+        }
+
         evt.preventDefault();
         delEl.nextElementSibling.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
       });
     } else {
-      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__item--with-children > .navigation__link[href="#"]', (evt, delEl) => {
+      theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__tier-1 > .navigation__item--with-children > .navigation__link[href="#"]', (evt, delEl) => {
         evt.preventDefault();
         delEl.nextElementSibling.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
       });
     }
+
+    // Nested parents: label always navigates when URL is real; only "#" (and the chevron) expand
+    theme.addDelegateEventListener(this.mobileDrawer, 'click', '.navigation__tier-2 > .navigation__item--with-children > .navigation__link[href="#"]', (evt, delEl) => {
+      evt.preventDefault();
+      const toggle = delEl.parentElement.querySelector(':scope > .navigation__children-toggle');
+      if (toggle) {
+        toggle.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
+      }
+    });
 
     // event: close second tier
     theme.addDelegateEventListener(this.mobileDrawer, 'click', '.mobile-nav-back', (evt) => {
@@ -2175,6 +2222,12 @@ const MainNavigation = class extends HTMLElement {
   }
 
   onNavParentHoverOut(evt) {
+    // Touch-only devices synthesize mouseleave when tapping inside an open
+    // dropdown, which closed the menu and ate the first tap on child links.
+    if (window.matchMedia('(hover: none)').matches) {
+      return;
+    }
+
     // cancel opening, close after delay, and clear transforms
     const dropdownContainer = evt.currentTarget;
     clearTimeout(dropdownContainer.dataset.navOpenTimeoutId);
@@ -2193,9 +2246,19 @@ const MainNavigation = class extends HTMLElement {
       } else if (evt.type === 'touchend') {
         // down & up in under a second - presume tap
         if (evt.timeStamp - parseInt(link.dataset.touchstartedAt, 10) < 1000) {
+          const isOpen = link.parentElement.classList.contains('navigation__item--show-children');
+          const href = link.getAttribute('href');
+          const hasNavigableUrl = href && href !== '#' && !href.trim().toLowerCase().startsWith('javascript:');
+
+          // Second tap on an already-open parent with a real URL: allow navigation
+          if (isOpen && hasNavigableUrl) {
+            delete link.dataset.touchOpenTriggeredAt;
+            return;
+          }
+
           link.dataset.touchOpenTriggeredAt = evt.timeStamp.toString();
-          if (link.parentElement.classList.contains('navigation__item--show-children')) {
-            // trigger close
+          if (isOpen) {
+            // trigger close (e.g. href="#")
             link.parentElement.dispatchEvent(new Event('mouseleave'));
           } else {
             // trigger close on any open items
